@@ -1,0 +1,60 @@
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+../libraries/DCL/DCL_clamp_C1.asm                                    PAGE    1
+
+       1              ; DCL_clamp_C1.asm - clamps output from immediate ARMA controller
+       2              ;
+       3              ; Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com/
+       4              ; ALL RIGHTS RESERVED 
+       5              
+       6                        .if $defined(__TI_EABI__)
+       7                              .if __TI_EABI__
+       8                              .asg    DCL_runClamp_C1, _DCL_runClamp_C1
+       9                              .endif
+      10                    .endif
+      11              
+      12                              .global _DCL_runClamp_C1
+      13              
+      14 00000000                       .sect   "dclfuncs"
+      15              
+      16              ; This function saturates an input data value to defined upper & lower limits.
+      17              ; If the input data lies definitely within limits the function returns 0,
+      18              ; otherwise it returns 1.
+      19              ; i.e. return 0 if (lowerLim < data < upperLim), otherwise return 1.
+      20              
+      21              ; C prototype: uint16_t DCL_runClamp_C1(float *data, float Umax, float Umin)
+      22              ; argument 1 = *data: address of input data [XAR4]
+      23              ; argument 2 = Umax : upper limit [R0H]
+      24              ; argument 3 = Umin : lower limit [R1H]
+      25              ; return = integer : 1 = clamped, 0 = not clamped [AL]
+      26              
+      27                              .align  2
+      28              
+      29 00000000       _DCL_runClamp_C1:
+      30                              .asmfunc
+      31 00000000 5633                  ZAPA                                                            ; AL = 0
+      32 00000001 E2AF                  MOV32           R2H, *+XAR4[0]                  ; R2H = data
+         00000002 02C4 
+      33 00000003 E694                  CMPF32          R2H, R0H                                ; compare: data, Umax
+         00000004 0002 
+      34 00000005 AD14                  MOVST0          ZF, NF                                  ; copy flags: Z = ZF, N = NF
+      35 00000006 56B3                  MOVB            AL, #1, GEQ                             ; data >= Umax ---> AL = 1
+         00000007 01A9 
+      36 00000008 E6C4                  MOV32           R0H, R2H, LT                    ; data < Umax ---> R0H = data
+         00000009 0010 
+      37 0000000a E694                  CMPF32          R2H, R1H                                ; comapare: data, Umin
+         0000000b 000A 
+      38 0000000c AD14                  MOVST0          ZF, NF                                  ; copy flags: Z = ZF, N = NF
+      39 0000000d 56B5                  MOVB            AL, #1, LEQ                             ; data <= Umin ---> AL = 1
+         0000000e 01A9 
+      40 0000000f E6C4                  MOV32           R0H, R1H, LT                    ; data < Umin ---> R0H = Umin
+         00000010 0008 
+      41 00000011 E203                  MOV32           *+XAR4[0], R0H                  ; &data = R0H
+         00000012 00C4 
+      42 00000013 0006                  LRETR
+      43                              .endasmfunc
+      44              
+      45                              .end
+
+No Assembly Errors, No Assembly Warnings

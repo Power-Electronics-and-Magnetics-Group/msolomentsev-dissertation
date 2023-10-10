@@ -1,0 +1,118 @@
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+../libraries/DCL/DCL_DF22_L2L3.asm                                   PAGE    1
+
+       1              ; DCL_DF22_L2L3.asm - Pre-computed Direct Form 2 implementation in second order
+       2              ;
+       3              ; Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com/
+       4              ; ALL RIGHTS RESERVED 
+       5              
+       6                              .if __TI_EABI__
+       7                              .asg    DCL_runDF22_L2, _DCL_runDF22_L2
+       8                              .asg    DCL_runDF22_L3, _DCL_runDF22_L3
+       9                              .endif
+      10              
+      11                              .global _DCL_runDF22_L2
+      12                              .global _DCL_runDF22_L3
+      13                              .def    __cla_DCL_DF22_L2L3_sp
+      14              
+      15        0002  SIZEOF_LFRAME           .set    2
+      16        0000  LFRAME_MR3                      .set    0
+      17              
+      18                              .align  2
+      19 00000000       __cla_DCL_DF22_L2L3_sp  .usect ".scratchpad:Cla1Prog:_DCL_DF22_L2L3_LSECT", SIZEOF_LFRAME, 0, 1
+      20                              .asg     __cla_DCL_DF22_L2L3_sp, LFRAME
+      21 00000000                       .sect   "Cla1Prog:_DCL_DF22_L2L3_LSECT"
+      22              
+      23              ; C prototype:
+      24              ; float DCL_runDF22_L2(DCL_DF22 *p, float32_t ek)
+      25              ; argument 1 = *p : structure address [MAR0]
+      26              ; argument 2 = ek : controller input [MR0]
+      27              ; return = uk : controller output [MR0]
+      28              
+      29 00000000       _DCL_runDF22_L2:
+      30              ;               MDEBUGSTOP
+      31 00000000 8080                  MSETFLG         RNDF32=1                                        ; round to nearest even
+         00000001 79C0 
+      32 00000002 0000                  MNOP                                                                    ; MAR0 load delay
+         00000003 7FA0 
+      33 00000004 0000                  MNOP                                                                    ; MAR0 load delay
+         00000005 7FA0 
+      34 00000006 000A                  MMOV32          MR1, *MAR0[10]++                        ; MR1 = b0, MAR0 = &x1
+         00000007 73D1 
+      35 00000008 0000                  MRCNDD          UNC                                                     ; return call
+         00000009 79AE 
+      36 0000000a 0010                  MMPYF32         MR0, MR0, MR1                           ; MR0 = v0
+         0000000b 7C00 
+      37 0000000c 0000                  MMOV32          MR1, *MAR0                                      ; MR1 = x1
+         0000000d 73D1 
+      38 0000000e 0010                  MADDF32         MR0, MR0, MR1                           ; MR0 = uk
+         0000000f 7C20 
+      39              
+      40              
+      41              ; C prototype: void DCL_runDF22_L3(DF22 *p, float ek, float uk)
+      42              ; argument 1 = *p : structure address [MAR0]
+      43              ; argument 2 = ek : controller input [MR0]
+      44              ; argument 3 = uk : u(k) output [MR1]
+      45              ; return: void
+      46              
+      47 00000010       _DCL_runDF22_L3:
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+../libraries/DCL/DCL_DF22_L2L3.asm                                   PAGE    2
+
+      48              ;               MDEBUGSTOP
+      49 00000010 8080                  MSETFLG         RNDF32=1                                        ; round to nearest even
+         00000011 79C0 
+      50 00000012 0000!                 MMOV32          @LFRAME + LFRAME_MR3, MR3       ; save MR3
+         00000013 74F0 
+      51 00000014 0000                  MNOP                                                                    ; MAR0 load delay
+         00000015 7FA0 
+      52 00000016 0002                  MMOV32          MR2, *MAR0[2]++                         ; MR2 = b0
+         00000017 73E1 
+      53 00000018 0002                  MMOV32          MR2, *MAR0[2]++                         ; MR2 = b1
+         00000019 73E1 
+      54 0000001a 0002                  MMPYF32         MR2, MR0, MR2                           ; MR2 = v1
+         0000001b 08B1 
+      55              ||              MMOV32          MR3, *MAR0[2]++                         ; MR3 = b2
+      56 0000001c 0006                  MMPYF32         MR3, MR0, MR3                           ; MR3 = v2
+         0000001d 0CC1 
+      57              ||              MMOV32          MR0, *MAR0[6]++                         ; MR0 = a1
+      58 0000001e 0010                  MMPYF32         MR0, MR0, MR1                           ; MR0 = v3
+         0000001f 7C00 
+      59 00000020 0000                  MNOP
+         00000021 7FA0 
+      60 00000022 000A                  MSUBF32         MR2, MR2, MR0                           ; MR2 = v1 - v3
+         00000023 7C40 
+      61 00000024 FFFE                  MMOV32          MR0, *MAR0[-2]++                        ; MR0 = x2
+         00000025 73C1 
+      62 00000026 000A                  MADDF32         MR2, MR2, MR0                           ; MR2 = x1d
+         00000027 7C20 
+      63 00000028 0000                  MNOP
+         00000029 7FA0 
+      64 0000002a FFFE                  MMOV32          *MAR0[-2]++, MR2                        ; save x1
+         0000002b 74E1 
+      65 0000002c 0004                  MMOV32          MR2, *MAR0[4]++                         ; MR2 = a2
+         0000002d 73E1 
+      66 0000002e 001A                  MMPYF32         MR2, MR2, MR1                           ; MR2 = v4
+         0000002f 7C00 
+      67 00000030 0000                  MNOP
+         00000031 7FA0 
+      68 00000032 002C                  MSUBF32         MR0, MR3, MR2                           ; MR0 = x2d
+         00000033 7C40 
+      69 00000034 0000                  MRCNDD          UNC                                                     ; return call
+         00000035 79AE 
+      70 00000036 0000                  MMOV32          *MAR0, MR0                                      ; save x2
+         00000037 74C1 
+      71 00000038 0000                  MNOP                                                                    ; return delay 2
+         00000039 7FA0 
+      72 0000003a 0000!                 MMOV32          MR3, @LFRAME + LFRAME_MR3       ; restore MR3
+         0000003b 73F0 
+      73              
+      74                              .unasg  LFRAME
+      75              
+      76              ; end of file
+
+No Assembly Errors, No Assembly Warnings

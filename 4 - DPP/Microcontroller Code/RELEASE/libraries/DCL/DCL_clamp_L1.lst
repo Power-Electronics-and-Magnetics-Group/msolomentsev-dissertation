@@ -1,0 +1,79 @@
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+../libraries/DCL/DCL_clamp_L1.asm                                    PAGE    1
+
+       1              ; DCL_clamp_L1.asm - clamps output from immediate ARMA controller on CLA
+       2              ;
+       3              ; Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com/
+       4              ; ALL RIGHTS RESERVED 
+       5              
+       6                        .if $defined(__TI_EABI__)
+       7                              .if __TI_EABI__
+       8                              .asg    DCL_runClamp_L1, _DCL_runClamp_L1
+       9                              .endif
+      10                    .endif
+      11              
+      12                              .global _DCL_runClamp_L1
+      13                              .def    __cla_DCL_clamp_L1_sp
+      14              
+      15        0004  SIZEOF_LFRAME           .set    4
+      16        0000  LFRAME_MR3                      .set    0
+      17        0002  LFRAME_ONE                      .set    2
+      18              
+      19                              .align  2
+      20 00000000       __cla_DCL_clamp_L1_sp   .usect ".scratchpad:Cla1Prog:_DCL_clamp_L1_LSECT", SIZEOF_LFRAME, 0, 1
+      21                              .asg     __cla_DCL_clamp_L1_sp, LFRAME
+      22 00000000                       .sect   "Cla1Prog:_DCL_clamp_L1_LSECT"
+      23              
+      24              ; This function saturates an input data value to defined upper & lower limits.
+      25              ; If the input data lies definitely within limits the function returns 0.0f,
+      26              ; otherwise it returns 1.0f.  The return value can be used by the pre-computed
+      27              ; controller to test for saturation.
+      28              ; i.e. return 0.0f if (Umin < data < Umax), otherwise return 1.0f
+      29              ; Returns 1.0f if data lies at the boundary: (data == Umax) or (data == Umin).
+      30              ; Returns 1.0f if limits are invalid: (Umax < Umin).
+      31              
+      32              ; C prototype: float DCL_runClamp_L1(float *data, float Umax, float Umin)
+      33              ; argument 1 = *data: address of input data [MAR0]
+      34              ; argument 2 = Umax : upper limit [MR0]
+      35              ; argument 3 = Umin : lower limit [MR1]
+      36              ; return = float : 1.0f = clamped, 0.0f = not clamped [MR0]
+      37              
+      38 00000000       _DCL_runClamp_L1:
+      39 00000000 0000!                 MMOV32          @LFRAME + LFRAME_MR3, MR3               ; save MR3
+         00000001 74F0 
+      40 00000002 3F80                  MMOVF32         MR3, #1.0f                                              ; MR3 = 1.0f
+         00000003 7843 
+      41 00000004 0002!                 MMOV32          @LFRAME + LFRAME_ONE, MR3               ; save constant
+         00000005 74F0 
+      42 00000006 0000                  MMOVF32         MR3, #0.0f                                              ; MR3 = 0.0f
+         00000007 7843 
+      43 00000008 0000                  MMOV32          MR2, *MAR0                                              ; MR2 = data
+         00000009 73E1 
+      44 0000000a 0008                  MMINF32         MR0, MR2                                                ; if (MR0 >  MR2)  {M
+         0000000b 7D40 
+      45 0000000c 0002!                 MMOV32          MR3, @LFRAME + LFRAME_ONE, LEQ  ; if (data >= Umax) {MR3 = 1.0f}
+         0000000d 7170 
+      46 0000000e 0004                  MMAXF32         MR0, MR1                                                ; if (MR0 < MR1) {MR0
+         0000000f 7D20 
+      47 00000010 0002!                 MMOV32          MR3, @LFRAME + LFRAME_ONE, LEQ  ; if (data <= Umin) {MR3 = 1.0f}
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+../libraries/DCL/DCL_clamp_L1.asm                                    PAGE    2
+
+         00000011 7170 
+      48 00000012 0000                  MRCNDD          UNC                                                             ; return call
+         00000013 79AE 
+      49 00000014 0000                  MMOV32          *MAR0, MR0                                              ; update data
+         00000015 74C1 
+      50 00000016 00FC                  MMOV32          MR0, MR3                                                ; return MR3
+         00000017 7AC0 
+      51 00000018 0000!                 MMOV32          MR3, @LFRAME + LFRAME_MR3               ; restore MR3
+         00000019 73F0 
+      52                              .unasg  LFRAME
+      53              
+      54              ; end of file
+
+No Assembly Errors, No Assembly Warnings

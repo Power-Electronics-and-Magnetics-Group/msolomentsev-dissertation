@@ -1,0 +1,1712 @@
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 G3 C/C++ Codegen                           Unix v21.6.0.LTS *
+       3              ;* Date/Time created: Tue May  9 11:00:04 2023                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --abi=eabi --cla_support=cla2 --diag_wrap=off --float_support=fpu32 --hll_source=on --
+       6                      .asg    XAR2, FP
+       7              
+       8              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+       9                      .dwattr $C$DW$CU, DW_AT_name("../device/device.c")
+      10                      .dwattr $C$DW$CU, DW_AT_producer("TI TMS320C2000 G3 C/C++ Codegen Unix v21.6.0.LTS Copyright (c) 1996
+      11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("/Users/michaelsolomentsev/Documents/CCS/MPPT_PSFB_F28004_primary/RE
+      13              
+      14              $C$DW$1 .dwtag  DW_TAG_subprogram
+      15                      .dwattr $C$DW$1, DW_AT_name("Flash_initModule")
+      16                      .dwattr $C$DW$1, DW_AT_linkage_name("Flash_initModule")
+      17                      .dwattr $C$DW$1, DW_AT_declaration
+      18                      .dwattr $C$DW$1, DW_AT_external
+      19                      .dwattr $C$DW$1, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c200
+      20                      .dwattr $C$DW$1, DW_AT_decl_line(0x634)
+      21                      .dwattr $C$DW$1, DW_AT_decl_column(0x01)
+      22              $C$DW$2 .dwtag  DW_TAG_formal_parameter
+      23                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$32)
+      24              
+      25              $C$DW$3 .dwtag  DW_TAG_formal_parameter
+      26                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$32)
+      27              
+      28              $C$DW$4 .dwtag  DW_TAG_formal_parameter
+      29                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$34)
+      30              
+      31                      .dwendtag $C$DW$1
+      32              
+      33              $C$DW$5 .dwtag  DW_TAG_variable
+      34                      .dwattr $C$DW$5, DW_AT_name("RamfuncsLoadStart")
+      35                      .dwattr $C$DW$5, DW_AT_linkage_name("RamfuncsLoadStart")
+      36                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$34)
+      37                      .dwattr $C$DW$5, DW_AT_declaration
+      38                      .dwattr $C$DW$5, DW_AT_external
+      39                      .dwattr $C$DW$5, DW_AT_decl_file("../device/device.h")
+      40                      .dwattr $C$DW$5, DW_AT_decl_line(0x8f)
+      41                      .dwattr $C$DW$5, DW_AT_decl_column(0x11)
+      42              
+      43              $C$DW$6 .dwtag  DW_TAG_variable
+      44                      .dwattr $C$DW$6, DW_AT_name("RamfuncsLoadSize")
+      45                      .dwattr $C$DW$6, DW_AT_linkage_name("RamfuncsLoadSize")
+      46                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$34)
+      47                      .dwattr $C$DW$6, DW_AT_declaration
+      48                      .dwattr $C$DW$6, DW_AT_external
+      49                      .dwattr $C$DW$6, DW_AT_decl_file("../device/device.h")
+      50                      .dwattr $C$DW$6, DW_AT_decl_line(0x91)
+      51                      .dwattr $C$DW$6, DW_AT_decl_column(0x11)
+      52              
+      53              $C$DW$7 .dwtag  DW_TAG_variable
+      54                      .dwattr $C$DW$7, DW_AT_name("RamfuncsRunStart")
+      55                      .dwattr $C$DW$7, DW_AT_linkage_name("RamfuncsRunStart")
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE    2
+
+      56                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$34)
+      57                      .dwattr $C$DW$7, DW_AT_declaration
+      58                      .dwattr $C$DW$7, DW_AT_external
+      59                      .dwattr $C$DW$7, DW_AT_decl_file("../device/device.h")
+      60                      .dwattr $C$DW$7, DW_AT_decl_line(0x92)
+      61                      .dwattr $C$DW$7, DW_AT_decl_column(0x11)
+      62              
+      63              $C$DW$8 .dwtag  DW_TAG_variable
+      64                      .dwattr $C$DW$8, DW_AT_name("isrcodefuncsLoadStart")
+      65                      .dwattr $C$DW$8, DW_AT_linkage_name("isrcodefuncsLoadStart")
+      66                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$34)
+      67                      .dwattr $C$DW$8, DW_AT_declaration
+      68                      .dwattr $C$DW$8, DW_AT_external
+      69                      .dwattr $C$DW$8, DW_AT_decl_file("../device/device.h")
+      70                      .dwattr $C$DW$8, DW_AT_decl_line(0x96)
+      71                      .dwattr $C$DW$8, DW_AT_decl_column(0x11)
+      72              
+      73              $C$DW$9 .dwtag  DW_TAG_variable
+      74                      .dwattr $C$DW$9, DW_AT_name("isrcodefuncsLoadSize")
+      75                      .dwattr $C$DW$9, DW_AT_linkage_name("isrcodefuncsLoadSize")
+      76                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$34)
+      77                      .dwattr $C$DW$9, DW_AT_declaration
+      78                      .dwattr $C$DW$9, DW_AT_external
+      79                      .dwattr $C$DW$9, DW_AT_decl_file("../device/device.h")
+      80                      .dwattr $C$DW$9, DW_AT_decl_line(0x98)
+      81                      .dwattr $C$DW$9, DW_AT_decl_column(0x11)
+      82              
+      83              $C$DW$10        .dwtag  DW_TAG_variable
+      84                      .dwattr $C$DW$10, DW_AT_name("isrcodefuncsRunStart")
+      85                      .dwattr $C$DW$10, DW_AT_linkage_name("isrcodefuncsRunStart")
+      86                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$34)
+      87                      .dwattr $C$DW$10, DW_AT_declaration
+      88                      .dwattr $C$DW$10, DW_AT_external
+      89                      .dwattr $C$DW$10, DW_AT_decl_file("../device/device.h")
+      90                      .dwattr $C$DW$10, DW_AT_decl_line(0x99)
+      91                      .dwattr $C$DW$10, DW_AT_decl_column(0x11)
+      92              
+      93              
+      94              $C$DW$11        .dwtag  DW_TAG_subprogram
+      95                      .dwattr $C$DW$11, DW_AT_name("SysCtl_setClock")
+      96                      .dwattr $C$DW$11, DW_AT_linkage_name("SysCtl_setClock")
+      97                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$51)
+      98                      .dwattr $C$DW$11, DW_AT_declaration
+      99                      .dwattr $C$DW$11, DW_AT_external
+     100                      .dwattr $C$DW$11, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     101                      .dwattr $C$DW$11, DW_AT_decl_line(0xb1b)
+     102                      .dwattr $C$DW$11, DW_AT_decl_column(0x01)
+     103              $C$DW$12        .dwtag  DW_TAG_formal_parameter
+     104                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$32)
+     105              
+     106                      .dwendtag $C$DW$11
+     107              
+     108                      .global ||dieid||
+     109 00000000               .bss    ||dieid||,2,1,1
+     110              $C$DW$13        .dwtag  DW_TAG_variable
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE    3
+
+     111                      .dwattr $C$DW$13, DW_AT_name("dieid")
+     112                      .dwattr $C$DW$13, DW_AT_linkage_name("dieid")
+     113                      .dwattr $C$DW$13, DW_AT_location[DW_OP_addr ||dieid||]
+     114                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$50)
+     115                      .dwattr $C$DW$13, DW_AT_external
+     116                      .dwattr $C$DW$13, DW_AT_decl_file("../device/device.c")
+     117                      .dwattr $C$DW$13, DW_AT_decl_line(0x36)
+     118                      .dwattr $C$DW$13, DW_AT_decl_column(0x0b)
+     119              
+     120                      .global ||Scribe||
+     121 00000002               .bss    ||Scribe||,2,1,1
+     122              $C$DW$14        .dwtag  DW_TAG_variable
+     123                      .dwattr $C$DW$14, DW_AT_name("Scribe")
+     124                      .dwattr $C$DW$14, DW_AT_linkage_name("Scribe")
+     125                      .dwattr $C$DW$14, DW_AT_location[DW_OP_addr ||Scribe||]
+     126                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$32)
+     127                      .dwattr $C$DW$14, DW_AT_external
+     128                      .dwattr $C$DW$14, DW_AT_decl_file("../device/device.c")
+     129                      .dwattr $C$DW$14, DW_AT_decl_line(0x36)
+     130                      .dwattr $C$DW$14, DW_AT_decl_column(0x12)
+     131              
+     132                      .global ||xCoord||
+     133 00000004               .bss    ||xCoord||,2,1,1
+     134              $C$DW$15        .dwtag  DW_TAG_variable
+     135                      .dwattr $C$DW$15, DW_AT_name("xCoord")
+     136                      .dwattr $C$DW$15, DW_AT_linkage_name("xCoord")
+     137                      .dwattr $C$DW$15, DW_AT_location[DW_OP_addr ||xCoord||]
+     138                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$32)
+     139                      .dwattr $C$DW$15, DW_AT_external
+     140                      .dwattr $C$DW$15, DW_AT_decl_file("../device/device.c")
+     141                      .dwattr $C$DW$15, DW_AT_decl_line(0x36)
+     142                      .dwattr $C$DW$15, DW_AT_decl_column(0x1a)
+     143              
+     144                      .global ||yCoord||
+     145 00000006               .bss    ||yCoord||,2,1,1
+     146              $C$DW$16        .dwtag  DW_TAG_variable
+     147                      .dwattr $C$DW$16, DW_AT_name("yCoord")
+     148                      .dwattr $C$DW$16, DW_AT_linkage_name("yCoord")
+     149                      .dwattr $C$DW$16, DW_AT_location[DW_OP_addr ||yCoord||]
+     150                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$32)
+     151                      .dwattr $C$DW$16, DW_AT_external
+     152                      .dwattr $C$DW$16, DW_AT_decl_file("../device/device.c")
+     153                      .dwattr $C$DW$16, DW_AT_decl_line(0x36)
+     154                      .dwattr $C$DW$16, DW_AT_decl_column(0x22)
+     155              
+     156                      .global ||WfrNum||
+     157 00000008               .bss    ||WfrNum||,2,1,1
+     158              $C$DW$17        .dwtag  DW_TAG_variable
+     159                      .dwattr $C$DW$17, DW_AT_name("WfrNum")
+     160                      .dwattr $C$DW$17, DW_AT_linkage_name("WfrNum")
+     161                      .dwattr $C$DW$17, DW_AT_location[DW_OP_addr ||WfrNum||]
+     162                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$32)
+     163                      .dwattr $C$DW$17, DW_AT_external
+     164                      .dwattr $C$DW$17, DW_AT_decl_file("../device/device.c")
+     165                      .dwattr $C$DW$17, DW_AT_decl_line(0x36)
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE    4
+
+     166                      .dwattr $C$DW$17, DW_AT_decl_column(0x2a)
+     167              
+     168              
+     169              $C$DW$18        .dwtag  DW_TAG_subprogram
+     170                      .dwattr $C$DW$18, DW_AT_name("__eallow")
+     171                      .dwattr $C$DW$18, DW_AT_linkage_name("__eallow")
+     172                      .dwattr $C$DW$18, DW_AT_declaration
+     173                      .dwattr $C$DW$18, DW_AT_external
+     174                      .dwendtag $C$DW$18
+     175              
+     176              
+     177              $C$DW$19        .dwtag  DW_TAG_subprogram
+     178                      .dwattr $C$DW$19, DW_AT_name("__edis")
+     179                      .dwattr $C$DW$19, DW_AT_linkage_name("__edis")
+     180                      .dwattr $C$DW$19, DW_AT_declaration
+     181                      .dwattr $C$DW$19, DW_AT_external
+     182                      .dwendtag $C$DW$19
+     183              
+     184                      .sblock ".bss"
+     185              ;       /Applications/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/bin/opt2000 /var/tmp/TI2lPS9VEgo 
+     186              ;       /Applications/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/bin/acia2000 -@/var/tmp/TI2lPtES4
+     187 00000000               .sect   ".text"
+     188                      .clink
+     189                      .global ||__error__||
+     190              
+     191              $C$DW$20        .dwtag  DW_TAG_subprogram
+     192                      .dwattr $C$DW$20, DW_AT_name("__error__")
+     193                      .dwattr $C$DW$20, DW_AT_low_pc(||__error__||)
+     194                      .dwattr $C$DW$20, DW_AT_high_pc(0x00)
+     195                      .dwattr $C$DW$20, DW_AT_linkage_name("__error__")
+     196                      .dwattr $C$DW$20, DW_AT_external
+     197                      .dwattr $C$DW$20, DW_AT_decl_file("../device/device.c")
+     198                      .dwattr $C$DW$20, DW_AT_decl_line(0xfc)
+     199                      .dwattr $C$DW$20, DW_AT_decl_column(0x06)
+     200                      .dwattr $C$DW$20, DW_AT_TI_max_frame_size(-2)
+     201                      .dwpsn  file "../device/device.c",line 253,column 1,is_stmt,address ||__error__||,isa 0
+     202              
+     203                      .dwfde $C$DW$CIE, ||__error__||
+     204              $C$DW$21        .dwtag  DW_TAG_formal_parameter
+     205                      .dwattr $C$DW$21, DW_AT_name("filename")
+     206                      .dwattr $C$DW$21, DW_AT_type(*$C$DW$T$39)
+     207                      .dwattr $C$DW$21, DW_AT_location[DW_OP_reg12]
+     208              
+     209              $C$DW$22        .dwtag  DW_TAG_formal_parameter
+     210                      .dwattr $C$DW$22, DW_AT_name("line")
+     211                      .dwattr $C$DW$22, DW_AT_type(*$C$DW$T$32)
+     212                      .dwattr $C$DW$22, DW_AT_location[DW_OP_reg0]
+     213              
+     214              
+     215              ;***************************************************************
+     216              ;* FNAME: __error__                     FR SIZE:   0           *
+     217              ;*                                                             *
+     218              ;* FUNCTION ENVIRONMENT                                        *
+     219              ;*                                                             *
+     220              ;* FUNCTION PROPERTIES                                         *
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE    5
+
+     221              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     222              ;***************************************************************
+     223              
+     224 00000000       ||__error__||:
+     225                      .dwcfi  cfa_offset, -2
+     226                      .dwcfi  save_reg_to_mem, 26, 0
+     227 00000000 7625   ESTOP0
+     228 00000001 FF69          SPM       #0                    ; [CPU_ALU] 
+     229              $C$DW$23        .dwtag  DW_TAG_TI_branch
+     230                      .dwattr $C$DW$23, DW_AT_low_pc(0x00)
+     231                      .dwattr $C$DW$23, DW_AT_TI_return
+     232              
+     233 00000002 0006          LRETR     ; [CPU_ALU] 
+     234                      ; return occurs ; [] 
+     235                      .dwattr $C$DW$20, DW_AT_TI_end_file("../device/device.c")
+     236                      .dwattr $C$DW$20, DW_AT_TI_end_line(0x103)
+     237                      .dwattr $C$DW$20, DW_AT_TI_end_column(0x01)
+     238                      .dwendentry
+     239                      .dwendtag $C$DW$20
+     240              
+     241 00000003               .sect   ".text"
+     242                      .clink
+     243                      .global ||Device_initGPIO||
+     244              
+     245              $C$DW$24        .dwtag  DW_TAG_subprogram
+     246                      .dwattr $C$DW$24, DW_AT_name("Device_initGPIO")
+     247                      .dwattr $C$DW$24, DW_AT_low_pc(||Device_initGPIO||)
+     248                      .dwattr $C$DW$24, DW_AT_high_pc(0x00)
+     249                      .dwattr $C$DW$24, DW_AT_linkage_name("Device_initGPIO")
+     250                      .dwattr $C$DW$24, DW_AT_external
+     251                      .dwattr $C$DW$24, DW_AT_decl_file("../device/device.c")
+     252                      .dwattr $C$DW$24, DW_AT_decl_line(0xed)
+     253                      .dwattr $C$DW$24, DW_AT_decl_column(0x06)
+     254                      .dwattr $C$DW$24, DW_AT_TI_max_frame_size(-2)
+     255                      .dwpsn  file "../device/device.c",line 238,column 1,is_stmt,address ||Device_initGPIO||,isa 0
+     256              
+     257                      .dwfde $C$DW$CIE, ||Device_initGPIO||
+     258              
+     259              ;***************************************************************
+     260              ;* FNAME: Device_initGPIO               FR SIZE:   0           *
+     261              ;*                                                             *
+     262              ;* FUNCTION ENVIRONMENT                                        *
+     263              ;*                                                             *
+     264              ;* FUNCTION PROPERTIES                                         *
+     265              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     266              ;***************************************************************
+     267              
+     268 00000003       ||Device_initGPIO||:
+     269                      .dwcfi  cfa_offset, -2
+     270                      .dwcfi  save_reg_to_mem, 26, 0
+     271                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     272 00000003 7622          EALLOW    ; [CPU_ALU] |728| 
+     273                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     274 00000004 BFA9          MOV32     ACC,*(0:0x7c3c)       ; [CPU_FPU] |729| 
+         00000005 7C3C 
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE    6
+
+     275 00000006 0200          MOVB      ACC,#0                ; [CPU_ALU] |729| 
+     276 00000007 BDA9          MOV32     *(0:0x7c3c),ACC       ; [CPU_FPU] |729| 
+         00000008 7C3C 
+     277 00000009 BFA6          MOV32     XAR6,*(0:0x7c7c)      ; [CPU_FPU] |729| 
+         0000000a 7C7C 
+     278 0000000b BDA9          MOV32     *(0:0x7c7c),ACC       ; [CPU_FPU] |729| 
+         0000000c 7C7C 
+     279 0000000d BFA6          MOV32     XAR6,*(0:0x7dfc)      ; [CPU_FPU] |729| 
+         0000000e 7DFC 
+     280 0000000f BDA9          MOV32     *(0:0x7dfc),ACC       ; [CPU_FPU] |729| 
+         00000010 7DFC 
+     281                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     282 00000011 761A          EDIS      ; [CPU_ALU] |730| 
+     283              $C$DW$25        .dwtag  DW_TAG_TI_branch
+     284                      .dwattr $C$DW$25, DW_AT_low_pc(0x00)
+     285                      .dwattr $C$DW$25, DW_AT_TI_return
+     286              
+     287 00000012 0006          LRETR     ; [CPU_ALU] 
+     288                      ; return occurs ; [] 
+     289                      .dwattr $C$DW$24, DW_AT_TI_end_file("../device/device.c")
+     290                      .dwattr $C$DW$24, DW_AT_TI_end_line(0xf5)
+     291                      .dwattr $C$DW$24, DW_AT_TI_end_column(0x01)
+     292                      .dwendentry
+     293                      .dwendtag $C$DW$24
+     294              
+     295 00000013               .sect   ".text"
+     296                      .clink
+     297                      .global ||Device_enableAllPeripherals||
+     298              
+     299              $C$DW$26        .dwtag  DW_TAG_subprogram
+     300                      .dwattr $C$DW$26, DW_AT_name("Device_enableAllPeripherals")
+     301                      .dwattr $C$DW$26, DW_AT_low_pc(||Device_enableAllPeripherals||)
+     302                      .dwattr $C$DW$26, DW_AT_high_pc(0x00)
+     303                      .dwattr $C$DW$26, DW_AT_linkage_name("Device_enableAllPeripherals")
+     304                      .dwattr $C$DW$26, DW_AT_external
+     305                      .dwattr $C$DW$26, DW_AT_decl_file("../device/device.c")
+     306                      .dwattr $C$DW$26, DW_AT_decl_line(0x9f)
+     307                      .dwattr $C$DW$26, DW_AT_decl_column(0x06)
+     308                      .dwattr $C$DW$26, DW_AT_TI_max_frame_size(-2)
+     309                      .dwpsn  file "../device/device.c",line 160,column 1,is_stmt,address ||Device_enableAllPeripherals||,i
+     310              
+     311                      .dwfde $C$DW$CIE, ||Device_enableAllPeripherals||
+     312              
+     313              ;***************************************************************
+     314              ;* FNAME: Device_enableAllPeripherals   FR SIZE:   0           *
+     315              ;*                                                             *
+     316              ;* FUNCTION ENVIRONMENT                                        *
+     317              ;*                                                             *
+     318              ;* FUNCTION PROPERTIES                                         *
+     319              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     320              ;***************************************************************
+     321              
+     322 00000013       ||Device_enableAllPeripherals||:
+     323                      .dwcfi  cfa_offset, -2
+     324                      .dwcfi  save_reg_to_mem, 26, 0
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE    7
+
+     325                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     326 00000013 7622          EALLOW    ; [CPU_ALU] |849| 
+     327                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     328 00000014 0201          MOVB      ACC,#1                ; [CPU_ALU] |854| 
+     329 00000015 8F05          MOVL      XAR4,#381730          ; [CPU_ARAU] |854| 
+         00000016 D322 
+     330 00000017 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     331 00000018 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     332 00000019 0204          MOVB      ACC,#4                ; [CPU_ALU] |854| 
+     333 0000001a 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     334 0000001b 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     335 0000001c 0208          MOVB      ACC,#8                ; [CPU_ALU] |854| 
+     336 0000001d 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     337 0000001e 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     338 0000001f 0210          MOVB      ACC,#16               ; [CPU_ALU] |854| 
+     339 00000020 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     340 00000021 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     341 00000022 0220          MOVB      ACC,#32               ; [CPU_ALU] |854| 
+     342 00000023 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     343 00000024 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     344 00000025 06C4          MOVL      ACC,*+XAR4[0]         ; [CPU_ALU] |854| 
+     345 00000026 5101          OR        AH,#1                 ; [CPU_ALU] |854| 
+     346 00000027 1EC4          MOVL      *+XAR4[0],ACC         ; [CPU_ALU] |854| 
+     347 00000028 06C4          MOVL      ACC,*+XAR4[0]         ; [CPU_ALU] |854| 
+     348 00000029 5104          OR        AH,#4                 ; [CPU_ALU] |854| 
+     349 0000002a 1EC4          MOVL      *+XAR4[0],ACC         ; [CPU_ALU] |854| 
+     350 0000002b 0201          MOVB      ACC,#1                ; [CPU_ALU] |854| 
+     351 0000002c 8F05          MOVL      XAR4,#381734          ; [CPU_ARAU] |854| 
+         0000002d D326 
+     352 0000002e 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     353 0000002f 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     354 00000030 0202          MOVB      ACC,#2                ; [CPU_ALU] |854| 
+     355 00000031 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     356 00000032 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     357 00000033 0204          MOVB      ACC,#4                ; [CPU_ALU] |854| 
+     358 00000034 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     359 00000035 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     360 00000036 0208          MOVB      ACC,#8                ; [CPU_ALU] |854| 
+     361 00000037 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     362 00000038 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     363 00000039 0210          MOVB      ACC,#16               ; [CPU_ALU] |854| 
+     364 0000003a 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     365 0000003b 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     366 0000003c 0220          MOVB      ACC,#32               ; [CPU_ALU] |854| 
+     367 0000003d 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     368 0000003e 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     369 0000003f 0240          MOVB      ACC,#64               ; [CPU_ALU] |854| 
+     370 00000040 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     371 00000041 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     372 00000042 0280          MOVB      ACC,#128              ; [CPU_ALU] |854| 
+     373 00000043 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     374 00000044 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     375 00000045 0201          MOVB      ACC,#1                ; [CPU_ALU] |854| 
+     376 00000046 8F05          MOVL      XAR4,#381736          ; [CPU_ARAU] |854| 
+         00000047 D328 
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE    8
+
+     377 00000048 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     378 00000049 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     379 0000004a 0202          MOVB      ACC,#2                ; [CPU_ALU] |854| 
+     380 0000004b 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     381 0000004c 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     382 0000004d 0204          MOVB      ACC,#4                ; [CPU_ALU] |854| 
+     383 0000004e 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     384 0000004f 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     385 00000050 0208          MOVB      ACC,#8                ; [CPU_ALU] |854| 
+     386 00000051 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     387 00000052 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     388 00000053 0210          MOVB      ACC,#16               ; [CPU_ALU] |854| 
+     389 00000054 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     390 00000055 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     391 00000056 0220          MOVB      ACC,#32               ; [CPU_ALU] |854| 
+     392 00000057 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     393 00000058 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     394 00000059 0240          MOVB      ACC,#64               ; [CPU_ALU] |854| 
+     395 0000005a 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     396 0000005b 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     397 0000005c 0201          MOVB      ACC,#1                ; [CPU_ALU] |854| 
+     398 0000005d 8F05          MOVL      XAR4,#381738          ; [CPU_ARAU] |854| 
+         0000005e D32A 
+     399 0000005f 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     400 00000060 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     401 00000061 0202          MOVB      ACC,#2                ; [CPU_ALU] |854| 
+     402 00000062 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     403 00000063 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     404 00000064 0201          MOVB      ACC,#1                ; [CPU_ALU] |854| 
+     405 00000065 8F05          MOVL      XAR4,#381742          ; [CPU_ARAU] |854| 
+         00000066 D32E 
+     406 00000067 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     407 00000068 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     408 00000069 8F05          MOVL      XAR4,#381744          ; [CPU_ARAU] |854| 
+         0000006a D330 
+     409 0000006b 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     410 0000006c 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     411 0000006d 0202          MOVB      ACC,#2                ; [CPU_ALU] |854| 
+     412 0000006e 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     413 0000006f 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     414 00000070 0201          MOVB      ACC,#1                ; [CPU_ALU] |854| 
+     415 00000071 8F05          MOVL      XAR4,#381746          ; [CPU_ARAU] |854| 
+         00000072 D332 
+     416 00000073 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     417 00000074 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     418 00000075 0202          MOVB      ACC,#2                ; [CPU_ALU] |854| 
+     419 00000076 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     420 00000077 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     421 00000078 0201          MOVB      ACC,#1                ; [CPU_ALU] |854| 
+     422 00000079 8F05          MOVL      XAR4,#381748          ; [CPU_ARAU] |854| 
+         0000007a D334 
+     423 0000007b 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     424 0000007c 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     425 0000007d 8F05          MOVL      XAR4,#381750          ; [CPU_ARAU] |854| 
+         0000007e D336 
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE    9
+
+     426 0000007f 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     427 00000080 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     428 00000081 0202          MOVB      ACC,#2                ; [CPU_ALU] |854| 
+     429 00000082 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     430 00000083 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     431 00000084 0201          MOVB      ACC,#1                ; [CPU_ALU] |854| 
+     432 00000085 8F05          MOVL      XAR4,#381756          ; [CPU_ARAU] |854| 
+         00000086 D33C 
+     433 00000087 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     434 00000088 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     435 00000089 0202          MOVB      ACC,#2                ; [CPU_ALU] |854| 
+     436 0000008a 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     437 0000008b 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     438 0000008c 0204          MOVB      ACC,#4                ; [CPU_ALU] |854| 
+     439 0000008d 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     440 0000008e 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     441 0000008f 0201          MOVB      ACC,#1                ; [CPU_ALU] |854| 
+     442 00000090 8F05          MOVL      XAR4,#381758          ; [CPU_ARAU] |854| 
+         00000091 D33E 
+     443 00000092 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     444 00000093 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     445 00000094 0202          MOVB      ACC,#2                ; [CPU_ALU] |854| 
+     446 00000095 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     447 00000096 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     448 00000097 0204          MOVB      ACC,#4                ; [CPU_ALU] |854| 
+     449 00000098 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     450 00000099 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     451 0000009a 0208          MOVB      ACC,#8                ; [CPU_ALU] |854| 
+     452 0000009b 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     453 0000009c 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     454 0000009d 0210          MOVB      ACC,#16               ; [CPU_ALU] |854| 
+     455 0000009e 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     456 0000009f 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     457 000000a0 0220          MOVB      ACC,#32               ; [CPU_ALU] |854| 
+     458 000000a1 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     459 000000a2 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     460 000000a3 0240          MOVB      ACC,#64               ; [CPU_ALU] |854| 
+     461 000000a4 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     462 000000a5 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     463 000000a6 0201          MOVB      ACC,#1                ; [CPU_ALU] |854| 
+     464 000000a7 8F05          MOVL      XAR4,#381760          ; [CPU_ARAU] |854| 
+         000000a8 D340 
+     465 000000a9 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     466 000000aa 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     467 000000ab 0202          MOVB      ACC,#2                ; [CPU_ALU] |854| 
+     468 000000ac 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     469 000000ad 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     470 000000ae 0204          MOVB      ACC,#4                ; [CPU_ALU] |854| 
+     471 000000af 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     472 000000b0 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     473 000000b1 0208          MOVB      ACC,#8                ; [CPU_ALU] |854| 
+     474 000000b2 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     475 000000b3 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     476 000000b4 0210          MOVB      ACC,#16               ; [CPU_ALU] |854| 
+     477 000000b5 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   10
+
+     478 000000b6 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     479 000000b7 0220          MOVB      ACC,#32               ; [CPU_ALU] |854| 
+     480 000000b8 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     481 000000b9 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     482 000000ba 0240          MOVB      ACC,#64               ; [CPU_ALU] |854| 
+     483 000000bb 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     484 000000bc 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     485 000000bd 8F05          MOVL      XAR4,#381762          ; [CPU_ARAU] |854| 
+         000000be D342 
+     486 000000bf 06C4          MOVL      ACC,*+XAR4[0]         ; [CPU_ALU] |854| 
+     487 000000c0 5101          OR        AH,#1                 ; [CPU_ALU] |854| 
+     488 000000c1 1EC4          MOVL      *+XAR4[0],ACC         ; [CPU_ALU] |854| 
+     489 000000c2 06C4          MOVL      ACC,*+XAR4[0]         ; [CPU_ALU] |854| 
+     490 000000c3 5102          OR        AH,#2                 ; [CPU_ALU] |854| 
+     491 000000c4 1EC4          MOVL      *+XAR4[0],ACC         ; [CPU_ALU] |854| 
+     492 000000c5 0201          MOVB      ACC,#1                ; [CPU_ALU] |854| 
+     493 000000c6 8F05          MOVL      XAR4,#381768          ; [CPU_ARAU] |854| 
+         000000c7 D348 
+     494 000000c8 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     495 000000c9 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     496 000000ca 8F05          MOVL      XAR4,#381770          ; [CPU_ARAU] |854| 
+         000000cb D34A 
+     497 000000cc 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     498 000000cd 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     499 000000ce 8F05          MOVL      XAR4,#381766          ; [CPU_ARAU] |854| 
+         000000cf D346 
+     500 000000d0 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     501 000000d1 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     502 000000d2 0202          MOVB      ACC,#2                ; [CPU_ALU] |854| 
+     503 000000d3 98C4          OR        *+XAR4[0],AL          ; [CPU_ALU] |854| 
+     504 000000d4 99CC          OR        *+XAR4[1],AH          ; [CPU_ALU] |854| 
+     505                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     506 000000d5 761A          EDIS      ; [CPU_ALU] |856| 
+     507              $C$DW$27        .dwtag  DW_TAG_TI_branch
+     508                      .dwattr $C$DW$27, DW_AT_low_pc(0x00)
+     509                      .dwattr $C$DW$27, DW_AT_TI_return
+     510              
+     511 000000d6 0006          LRETR     ; [CPU_ALU] 
+     512                      ; return occurs ; [] 
+     513                      .dwattr $C$DW$26, DW_AT_TI_end_file("../device/device.c")
+     514                      .dwattr $C$DW$26, DW_AT_TI_end_line(0xe6)
+     515                      .dwattr $C$DW$26, DW_AT_TI_end_column(0x01)
+     516                      .dwendentry
+     517                      .dwendtag $C$DW$26
+     518              
+     519 000000d7               .sect   ".text"
+     520                      .clink
+     521                      .global ||Device_init||
+     522              
+     523              $C$DW$28        .dwtag  DW_TAG_subprogram
+     524                      .dwattr $C$DW$28, DW_AT_name("Device_init")
+     525                      .dwattr $C$DW$28, DW_AT_low_pc(||Device_init||)
+     526                      .dwattr $C$DW$28, DW_AT_high_pc(0x00)
+     527                      .dwattr $C$DW$28, DW_AT_linkage_name("Device_init")
+     528                      .dwattr $C$DW$28, DW_AT_external
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   11
+
+     529                      .dwattr $C$DW$28, DW_AT_decl_file("../device/device.c")
+     530                      .dwattr $C$DW$28, DW_AT_decl_line(0x3f)
+     531                      .dwattr $C$DW$28, DW_AT_decl_column(0x06)
+     532                      .dwattr $C$DW$28, DW_AT_TI_max_frame_size(-4)
+     533                      .dwpsn  file "../device/device.c",line 64,column 1,is_stmt,address ||Device_init||,isa 0
+     534              
+     535                      .dwfde $C$DW$CIE, ||Device_init||
+     536              
+     537              ;***************************************************************
+     538              ;* FNAME: Device_init                   FR SIZE:   2           *
+     539              ;*                                                             *
+     540              ;* FUNCTION ENVIRONMENT                                        *
+     541              ;*                                                             *
+     542              ;* FUNCTION PROPERTIES                                         *
+     543              ;*                            2 Parameter,  0 Auto,  0 SOE     *
+     544              ;***************************************************************
+     545              
+     546 000000d7       ||Device_init||:
+     547              ;* AR4   assigned to $O$v1
+     548                      .dwcfi  cfa_offset, -2
+     549                      .dwcfi  save_reg_to_mem, 26, 0
+     550 000000d7 FE02          ADDB      SP,#2                 ; [CPU_ARAU] 
+     551                      .dwcfi  cfa_offset, -4
+     552                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     553 000000d8 7622          EALLOW    ; [CPU_ALU] |1562| 
+     554                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     555 000000d9 F5A9          MOV       AL,*(0:0x7029)        ; [CPU_ALU] |1567| 
+         000000da 7029 
+     556 000000db 5068          ORB       AL,#0x68              ; [CPU_ALU] |1567| 
+     557 000000dc F4A9          MOV       *(0:0x7029),AL        ; [CPU_ALU] |1567| 
+         000000dd 7029 
+     558                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     559 000000de 761A          EDIS      ; [CPU_ALU] |1569| 
+     560                      .dwpsn  file "../device/device.c",line 78,column 5,is_stmt,isa 0
+     561 000000df 8F40!         MOVL      XAR5,#||RamfuncsLoadStart|| ; [CPU_ARAU] |78| 
+         000000e0 0000 
+     562 000000e1 28A8!         MOV       AH,#$HI16(||RamfuncsLoadSize||) + 0 ; [CPU_ALU] |78| 
+         000000e2 0000 
+     563 000000e3 8F00!         MOVL      XAR4,#||RamfuncsRunStart|| ; [CPU_ARAU] |78| 
+         000000e4 0000 
+     564 000000e5 28A9!         MOV       AL,#$LO16(||RamfuncsLoadSize||) + 0 ; [CPU_ALU] |78| 
+         000000e6 0000 
+     565              $C$DW$29        .dwtag  DW_TAG_TI_branch
+     566                      .dwattr $C$DW$29, DW_AT_low_pc(0x00)
+     567                      .dwattr $C$DW$29, DW_AT_name("memcpy")
+     568                      .dwattr $C$DW$29, DW_AT_TI_call
+     569              
+     570 000000e7 7640!         LCR       #||memcpy||           ; [CPU_ALU] |78| 
+         000000e8 0000 
+     571                      ; call occurs [#||memcpy||] ; [] |78| 
+     572                      .dwpsn  file "../device/device.c",line 80,column 5,is_stmt,isa 0
+     573 000000e9 28A9!         MOV       AL,#$LO16(||isrcodefuncsLoadSize||) + 0 ; [CPU_ALU] |80| 
+         000000ea 0000 
+     574 000000eb 28A8!         MOV       AH,#$HI16(||isrcodefuncsLoadSize||) + 0 ; [CPU_ALU] |80| 
+         000000ec 0000 
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   12
+
+     575 000000ed 8F40!         MOVL      XAR5,#||isrcodefuncsLoadStart|| ; [CPU_ARAU] |80| 
+         000000ee 0000 
+     576 000000ef 8F00!         MOVL      XAR4,#||isrcodefuncsRunStart|| ; [CPU_ARAU] |80| 
+         000000f0 0000 
+     577              $C$DW$30        .dwtag  DW_TAG_TI_branch
+     578                      .dwattr $C$DW$30, DW_AT_low_pc(0x00)
+     579                      .dwattr $C$DW$30, DW_AT_name("memcpy")
+     580                      .dwattr $C$DW$30, DW_AT_TI_call
+     581              
+     582 000000f1 7640!         LCR       #||memcpy||           ; [CPU_ALU] |80| 
+         000000f2 0000 
+     583                      ; call occurs [#||memcpy||] ; [] |80| 
+     584                      .dwpsn  file "../device/device.c",line 88,column 5,is_stmt,isa 0
+     585 000000f3 8F05          MOVL      XAR4,#381046          ; [CPU_ARAU] |88| 
+         000000f4 D076 
+     586 000000f5 761F!         MOVW      DP,#||xCoord||        ; [CPU_ARAU] 
+         000000f6 0000 
+     587 000000f7 2901          CLRC      SXM                   ; [CPU_ALU] 
+     588                      .dwpsn  file "../device/device.c",line 91,column 8,is_stmt,isa 0
+     589 000000f8 28AC          MOV       T,#24                 ; [CPU_ALU] |91| 
+         000000f9 0018 
+     590                      .dwpsn  file "../device/device.c",line 89,column 8,is_stmt,isa 0
+     591 000000fa 06C4          MOVL      ACC,*+XAR4[0]         ; [CPU_ALU] |89| 
+     592 000000fb 18A9          AND       AL,#4095              ; [CPU_ALU] |89| 
+         000000fc 0FFF 
+     593 000000fd 9100          ANDB      AH,#0                 ; [CPU_ALU] |89| 
+     594 000000fe 1E00!         MOVL      @||xCoord||,ACC       ; [CPU_ALU] |89| 
+     595                      .dwpsn  file "../device/device.c",line 88,column 5,is_stmt,isa 0
+     596 000000ff A800!         MOVL      @||dieid||,XAR4       ; [CPU_ALU] |88| 
+     597                      .dwpsn  file "../device/device.c",line 90,column 8,is_stmt,isa 0
+     598 00000100 06C4          MOVL      ACC,*+XAR4[0]         ; [CPU_ALU] |90| 
+     599 00000101 FF4B          SFR       ACC,12                ; [CPU_ALU] |90| 
+     600 00000102 18A9          AND       AL,#4095              ; [CPU_ALU] |90| 
+         00000103 0FFF 
+     601 00000104 9100          ANDB      AH,#0                 ; [CPU_ALU] |90| 
+     602 00000105 1E00!         MOVL      @||yCoord||,ACC       ; [CPU_ALU] |90| 
+     603                      .dwpsn  file "../device/device.c",line 91,column 8,is_stmt,isa 0
+     604 00000106 06C4          MOVL      ACC,*+XAR4[0]         ; [CPU_ALU] |91| 
+     605 00000107 5622          LSRL      ACC,T                 ; [CPU_ALU] |91| 
+     606 00000108 9B00          MOVB      AH,#0                 ; [CPU_ALU] |91| 
+     607 00000109 903F          ANDB      AL,#0x3f              ; [CPU_ALU] |91| 
+     608 0000010a 1E00!         MOVL      @||WfrNum||,ACC       ; [CPU_ALU] |91| 
+     609                      .dwpsn  file "../device/device.c",line 92,column 8,is_stmt,isa 0
+     610 0000010b 06D4          MOVL      ACC,*+XAR4[2]         ; [CPU_ALU] |92| 
+     611 0000010c 91FF          ANDB      AH,#255               ; [CPU_ALU] |92| 
+     612 0000010d 1E00!         MOVL      @||Scribe||,ACC       ; [CPU_ALU] |92| 
+     613                      .dwpsn  file "../device/device.c",line 100,column 5,is_stmt,isa 0
+     614 0000010e 9A8A          MOV       AL,#138               ; [CPU_ALU] |100| 
+     615 0000010f 28A8          MOV       AH,#32769             ; [CPU_ALU] |100| 
+         00000110 8001 
+     616              $C$DW$31        .dwtag  DW_TAG_TI_branch
+     617                      .dwattr $C$DW$31, DW_AT_low_pc(0x00)
+     618                      .dwattr $C$DW$31, DW_AT_name("SysCtl_setClock")
+     619                      .dwattr $C$DW$31, DW_AT_TI_call
+     620              
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   13
+
+     621 00000111 7640!         LCR       #||SysCtl_setClock||  ; [CPU_ALU] |100| 
+         00000112 0000 
+     622                      ; call occurs [#||SysCtl_setClock||] ; [] |100| 
+     623                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     624 00000113 7622          EALLOW    ; [CPU_ALU] |1039| 
+     625                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     626 00000114 8F05          MOVL      XAR4,#381484          ; [CPU_ARAU] |1040| 
+         00000115 D22C 
+     627 00000116 06C4          MOVL      ACC,*+XAR4[0]         ; [CPU_ALU] |1040| 
+     628 00000117 18A9          AND       AL,#65528             ; [CPU_ALU] |1040| 
+         00000118 FFF8 
+     629 00000119 5001          ORB       AL,#0x01              ; [CPU_ALU] |1040| 
+     630 0000011a 1EC4          MOVL      *+XAR4[0],ACC         ; [CPU_ALU] |1040| 
+     631                      .dwpsn  file "/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2000ware/driverlib/f280
+     632 0000011b 761A          EDIS      ; [CPU_ALU] |1043| 
+     633                      .dwpsn  file "../device/device.c",line 123,column 5,is_stmt,isa 0
+     634 0000011c 8F45          MOVL      XAR5,#391168          ; [CPU_ARAU] |123| 
+         0000011d F800 
+     635 0000011e 8F05          MOVL      XAR4,#391936          ; [CPU_ARAU] |123| 
+         0000011f FB00 
+     636 00000120 A842          MOVL      *-SP[2],XAR4          ; [CPU_ALU] |123| 
+     637 00000121 A0A9          MOVL      ACC,XAR5              ; [CPU_ALU] |123| 
+     638 00000122 D404          MOVB      XAR4,#4               ; [CPU_ALU] |123| 
+     639              $C$DW$32        .dwtag  DW_TAG_TI_branch
+     640                      .dwattr $C$DW$32, DW_AT_low_pc(0x00)
+     641                      .dwattr $C$DW$32, DW_AT_name("Flash_initModule")
+     642                      .dwattr $C$DW$32, DW_AT_TI_call
+     643              
+     644 00000123 7640!         LCR       #||Flash_initModule|| ; [CPU_ALU] |123| 
+         00000124 0000 
+     645                      ; call occurs [#||Flash_initModule||] ; [] |123| 
+     646                      .dwpsn  file "../device/device.c",line 129,column 5,is_stmt,isa 0
+     647              $C$DW$33        .dwtag  DW_TAG_TI_branch
+     648                      .dwattr $C$DW$33, DW_AT_low_pc(0x00)
+     649                      .dwattr $C$DW$33, DW_AT_name("Device_enableAllPeripherals")
+     650                      .dwattr $C$DW$33, DW_AT_TI_call
+     651              
+     652 00000125 7640!         LCR       #||Device_enableAllPeripherals|| ; [CPU_ALU] |129| 
+         00000126 0000 
+     653                      ; call occurs [#||Device_enableAllPeripherals||] ; [] |129| 
+     654 00000127 FE82          SUBB      SP,#2                 ; [CPU_ARAU] 
+     655                      .dwcfi  cfa_offset, -2
+     656              $C$DW$34        .dwtag  DW_TAG_TI_branch
+     657                      .dwattr $C$DW$34, DW_AT_low_pc(0x00)
+     658                      .dwattr $C$DW$34, DW_AT_TI_return
+     659              
+     660 00000128 0006          LRETR     ; [CPU_ALU] 
+     661                      ; return occurs ; [] 
+     662                      .dwattr $C$DW$28, DW_AT_TI_end_file("../device/device.c")
+     663                      .dwattr $C$DW$28, DW_AT_TI_end_line(0x95)
+     664                      .dwattr $C$DW$28, DW_AT_TI_end_column(0x01)
+     665                      .dwendentry
+     666                      .dwendtag $C$DW$28
+     667              
+     668              ;**************************************************************
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   14
+
+     669              ;* UNDEFINED EXTERNAL REFERENCES                              *
+     670              ;**************************************************************
+     671                      .global ||Flash_initModule||
+     672                      .global ||RamfuncsLoadStart||
+     673                      .global ||RamfuncsLoadSize||
+     674                      .global ||RamfuncsRunStart||
+     675                      .global ||isrcodefuncsLoadStart||
+     676                      .global ||isrcodefuncsLoadSize||
+     677                      .global ||isrcodefuncsRunStart||
+     678                      .global ||SysCtl_setClock||
+     679                      .global ||memcpy||
+     680              
+     681              ;***************************************************************
+     682              ;* BUILD ATTRIBUTES                                            *
+     683              ;***************************************************************
+     684                      .battr "c28xabi", Tag_File, 1, Tag_float_args(0)
+     685                      .battr "c28xabi", Tag_File, 1, Tag_double_args(0)
+     686                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+     687              
+     688              ;***************************************************************
+     689              ;* DWARF CIE ENTRIES                                           *
+     690              ;***************************************************************
+     691              
+     692              $C$DW$CIE       .dwcie 26
+     693                      .dwcfi  cfa_register, 20
+     694                      .dwcfi  cfa_offset, 0
+     695                      .dwcfi  same_value, 28
+     696                      .dwcfi  same_value, 6
+     697                      .dwcfi  same_value, 7
+     698                      .dwcfi  same_value, 8
+     699                      .dwcfi  same_value, 9
+     700                      .dwcfi  same_value, 10
+     701                      .dwcfi  same_value, 11
+     702                      .dwcfi  same_value, 59
+     703                      .dwcfi  same_value, 63
+     704                      .dwcfi  same_value, 67
+     705                      .dwcfi  same_value, 71
+     706                      .dwendentry
+     707                      .dwendtag $C$DW$CU
+     708              
+     709              
+     710              ;***************************************************************
+     711              ;* TYPE INFORMATION                                            *
+     712              ;***************************************************************
+     713              
+     714              $C$DW$TU$19     .dwtag  DW_TAG_type_unit
+     715                      .dwmtype  $C$DW$T$19
+     716              
+     717              $C$DW$T$19      .dwtag  DW_TAG_enumeration_type
+     718                      .dwattr $C$DW$T$19, DW_AT_byte_size(0x01)
+     719              $C$DW$35        .dwtag  DW_TAG_enumerator
+     720                      .dwattr $C$DW$35, DW_AT_name("SYSCTL_PERIPH_CLK_CLA1")
+     721                      .dwattr $C$DW$35, DW_AT_const_value(0x00)
+     722                      .dwattr $C$DW$35, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     723                      .dwattr $C$DW$35, DW_AT_decl_line(0x117)
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   15
+
+     724                      .dwattr $C$DW$35, DW_AT_decl_column(0x05)
+     725              
+     726              $C$DW$36        .dwtag  DW_TAG_enumerator
+     727                      .dwattr $C$DW$36, DW_AT_name("SYSCTL_PERIPH_CLK_DMA")
+     728                      .dwattr $C$DW$36, DW_AT_const_value(0x200)
+     729                      .dwattr $C$DW$36, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     730                      .dwattr $C$DW$36, DW_AT_decl_line(0x118)
+     731                      .dwattr $C$DW$36, DW_AT_decl_column(0x05)
+     732              
+     733              $C$DW$37        .dwtag  DW_TAG_enumerator
+     734                      .dwattr $C$DW$37, DW_AT_name("SYSCTL_PERIPH_CLK_TIMER0")
+     735                      .dwattr $C$DW$37, DW_AT_const_value(0x300)
+     736                      .dwattr $C$DW$37, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     737                      .dwattr $C$DW$37, DW_AT_decl_line(0x119)
+     738                      .dwattr $C$DW$37, DW_AT_decl_column(0x05)
+     739              
+     740              $C$DW$38        .dwtag  DW_TAG_enumerator
+     741                      .dwattr $C$DW$38, DW_AT_name("SYSCTL_PERIPH_CLK_TIMER1")
+     742                      .dwattr $C$DW$38, DW_AT_const_value(0x400)
+     743                      .dwattr $C$DW$38, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     744                      .dwattr $C$DW$38, DW_AT_decl_line(0x11a)
+     745                      .dwattr $C$DW$38, DW_AT_decl_column(0x05)
+     746              
+     747              $C$DW$39        .dwtag  DW_TAG_enumerator
+     748                      .dwattr $C$DW$39, DW_AT_name("SYSCTL_PERIPH_CLK_TIMER2")
+     749                      .dwattr $C$DW$39, DW_AT_const_value(0x500)
+     750                      .dwattr $C$DW$39, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     751                      .dwattr $C$DW$39, DW_AT_decl_line(0x11b)
+     752                      .dwattr $C$DW$39, DW_AT_decl_column(0x05)
+     753              
+     754              $C$DW$40        .dwtag  DW_TAG_enumerator
+     755                      .dwattr $C$DW$40, DW_AT_name("SYSCTL_PERIPH_CLK_HRPWM")
+     756                      .dwattr $C$DW$40, DW_AT_const_value(0x1000)
+     757                      .dwattr $C$DW$40, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     758                      .dwattr $C$DW$40, DW_AT_decl_line(0x11c)
+     759                      .dwattr $C$DW$40, DW_AT_decl_column(0x05)
+     760              
+     761              $C$DW$41        .dwtag  DW_TAG_enumerator
+     762                      .dwattr $C$DW$41, DW_AT_name("SYSCTL_PERIPH_CLK_TBCLKSYNC")
+     763                      .dwattr $C$DW$41, DW_AT_const_value(0x1200)
+     764                      .dwattr $C$DW$41, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     765                      .dwattr $C$DW$41, DW_AT_decl_line(0x11d)
+     766                      .dwattr $C$DW$41, DW_AT_decl_column(0x05)
+     767              
+     768              $C$DW$42        .dwtag  DW_TAG_enumerator
+     769                      .dwattr $C$DW$42, DW_AT_name("SYSCTL_PERIPH_CLK_EPWM1")
+     770                      .dwattr $C$DW$42, DW_AT_const_value(0x02)
+     771                      .dwattr $C$DW$42, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     772                      .dwattr $C$DW$42, DW_AT_decl_line(0x11e)
+     773                      .dwattr $C$DW$42, DW_AT_decl_column(0x05)
+     774              
+     775              $C$DW$43        .dwtag  DW_TAG_enumerator
+     776                      .dwattr $C$DW$43, DW_AT_name("SYSCTL_PERIPH_CLK_EPWM2")
+     777                      .dwattr $C$DW$43, DW_AT_const_value(0x102)
+     778                      .dwattr $C$DW$43, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   16
+
+     779                      .dwattr $C$DW$43, DW_AT_decl_line(0x11f)
+     780                      .dwattr $C$DW$43, DW_AT_decl_column(0x05)
+     781              
+     782              $C$DW$44        .dwtag  DW_TAG_enumerator
+     783                      .dwattr $C$DW$44, DW_AT_name("SYSCTL_PERIPH_CLK_EPWM3")
+     784                      .dwattr $C$DW$44, DW_AT_const_value(0x202)
+     785                      .dwattr $C$DW$44, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     786                      .dwattr $C$DW$44, DW_AT_decl_line(0x120)
+     787                      .dwattr $C$DW$44, DW_AT_decl_column(0x05)
+     788              
+     789              $C$DW$45        .dwtag  DW_TAG_enumerator
+     790                      .dwattr $C$DW$45, DW_AT_name("SYSCTL_PERIPH_CLK_EPWM4")
+     791                      .dwattr $C$DW$45, DW_AT_const_value(0x302)
+     792                      .dwattr $C$DW$45, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     793                      .dwattr $C$DW$45, DW_AT_decl_line(0x121)
+     794                      .dwattr $C$DW$45, DW_AT_decl_column(0x05)
+     795              
+     796              $C$DW$46        .dwtag  DW_TAG_enumerator
+     797                      .dwattr $C$DW$46, DW_AT_name("SYSCTL_PERIPH_CLK_EPWM5")
+     798                      .dwattr $C$DW$46, DW_AT_const_value(0x402)
+     799                      .dwattr $C$DW$46, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     800                      .dwattr $C$DW$46, DW_AT_decl_line(0x122)
+     801                      .dwattr $C$DW$46, DW_AT_decl_column(0x05)
+     802              
+     803              $C$DW$47        .dwtag  DW_TAG_enumerator
+     804                      .dwattr $C$DW$47, DW_AT_name("SYSCTL_PERIPH_CLK_EPWM6")
+     805                      .dwattr $C$DW$47, DW_AT_const_value(0x502)
+     806                      .dwattr $C$DW$47, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     807                      .dwattr $C$DW$47, DW_AT_decl_line(0x123)
+     808                      .dwattr $C$DW$47, DW_AT_decl_column(0x05)
+     809              
+     810              $C$DW$48        .dwtag  DW_TAG_enumerator
+     811                      .dwattr $C$DW$48, DW_AT_name("SYSCTL_PERIPH_CLK_EPWM7")
+     812                      .dwattr $C$DW$48, DW_AT_const_value(0x602)
+     813                      .dwattr $C$DW$48, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     814                      .dwattr $C$DW$48, DW_AT_decl_line(0x124)
+     815                      .dwattr $C$DW$48, DW_AT_decl_column(0x05)
+     816              
+     817              $C$DW$49        .dwtag  DW_TAG_enumerator
+     818                      .dwattr $C$DW$49, DW_AT_name("SYSCTL_PERIPH_CLK_EPWM8")
+     819                      .dwattr $C$DW$49, DW_AT_const_value(0x702)
+     820                      .dwattr $C$DW$49, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     821                      .dwattr $C$DW$49, DW_AT_decl_line(0x125)
+     822                      .dwattr $C$DW$49, DW_AT_decl_column(0x05)
+     823              
+     824              $C$DW$50        .dwtag  DW_TAG_enumerator
+     825                      .dwattr $C$DW$50, DW_AT_name("SYSCTL_PERIPH_CLK_ECAP1")
+     826                      .dwattr $C$DW$50, DW_AT_const_value(0x03)
+     827                      .dwattr $C$DW$50, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     828                      .dwattr $C$DW$50, DW_AT_decl_line(0x126)
+     829                      .dwattr $C$DW$50, DW_AT_decl_column(0x05)
+     830              
+     831              $C$DW$51        .dwtag  DW_TAG_enumerator
+     832                      .dwattr $C$DW$51, DW_AT_name("SYSCTL_PERIPH_CLK_ECAP2")
+     833                      .dwattr $C$DW$51, DW_AT_const_value(0x103)
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   17
+
+     834                      .dwattr $C$DW$51, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     835                      .dwattr $C$DW$51, DW_AT_decl_line(0x127)
+     836                      .dwattr $C$DW$51, DW_AT_decl_column(0x05)
+     837              
+     838              $C$DW$52        .dwtag  DW_TAG_enumerator
+     839                      .dwattr $C$DW$52, DW_AT_name("SYSCTL_PERIPH_CLK_ECAP3")
+     840                      .dwattr $C$DW$52, DW_AT_const_value(0x203)
+     841                      .dwattr $C$DW$52, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     842                      .dwattr $C$DW$52, DW_AT_decl_line(0x128)
+     843                      .dwattr $C$DW$52, DW_AT_decl_column(0x05)
+     844              
+     845              $C$DW$53        .dwtag  DW_TAG_enumerator
+     846                      .dwattr $C$DW$53, DW_AT_name("SYSCTL_PERIPH_CLK_ECAP4")
+     847                      .dwattr $C$DW$53, DW_AT_const_value(0x303)
+     848                      .dwattr $C$DW$53, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     849                      .dwattr $C$DW$53, DW_AT_decl_line(0x129)
+     850                      .dwattr $C$DW$53, DW_AT_decl_column(0x05)
+     851              
+     852              $C$DW$54        .dwtag  DW_TAG_enumerator
+     853                      .dwattr $C$DW$54, DW_AT_name("SYSCTL_PERIPH_CLK_ECAP5")
+     854                      .dwattr $C$DW$54, DW_AT_const_value(0x403)
+     855                      .dwattr $C$DW$54, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     856                      .dwattr $C$DW$54, DW_AT_decl_line(0x12a)
+     857                      .dwattr $C$DW$54, DW_AT_decl_column(0x05)
+     858              
+     859              $C$DW$55        .dwtag  DW_TAG_enumerator
+     860                      .dwattr $C$DW$55, DW_AT_name("SYSCTL_PERIPH_CLK_ECAP6")
+     861                      .dwattr $C$DW$55, DW_AT_const_value(0x503)
+     862                      .dwattr $C$DW$55, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     863                      .dwattr $C$DW$55, DW_AT_decl_line(0x12b)
+     864                      .dwattr $C$DW$55, DW_AT_decl_column(0x05)
+     865              
+     866              $C$DW$56        .dwtag  DW_TAG_enumerator
+     867                      .dwattr $C$DW$56, DW_AT_name("SYSCTL_PERIPH_CLK_ECAP7")
+     868                      .dwattr $C$DW$56, DW_AT_const_value(0x603)
+     869                      .dwattr $C$DW$56, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     870                      .dwattr $C$DW$56, DW_AT_decl_line(0x12c)
+     871                      .dwattr $C$DW$56, DW_AT_decl_column(0x05)
+     872              
+     873              $C$DW$57        .dwtag  DW_TAG_enumerator
+     874                      .dwattr $C$DW$57, DW_AT_name("SYSCTL_PERIPH_CLK_EQEP1")
+     875                      .dwattr $C$DW$57, DW_AT_const_value(0x04)
+     876                      .dwattr $C$DW$57, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     877                      .dwattr $C$DW$57, DW_AT_decl_line(0x12d)
+     878                      .dwattr $C$DW$57, DW_AT_decl_column(0x05)
+     879              
+     880              $C$DW$58        .dwtag  DW_TAG_enumerator
+     881                      .dwattr $C$DW$58, DW_AT_name("SYSCTL_PERIPH_CLK_EQEP2")
+     882                      .dwattr $C$DW$58, DW_AT_const_value(0x104)
+     883                      .dwattr $C$DW$58, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     884                      .dwattr $C$DW$58, DW_AT_decl_line(0x12e)
+     885                      .dwattr $C$DW$58, DW_AT_decl_column(0x05)
+     886              
+     887              $C$DW$59        .dwtag  DW_TAG_enumerator
+     888                      .dwattr $C$DW$59, DW_AT_name("SYSCTL_PERIPH_CLK_SD1")
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   18
+
+     889                      .dwattr $C$DW$59, DW_AT_const_value(0x06)
+     890                      .dwattr $C$DW$59, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     891                      .dwattr $C$DW$59, DW_AT_decl_line(0x12f)
+     892                      .dwattr $C$DW$59, DW_AT_decl_column(0x05)
+     893              
+     894              $C$DW$60        .dwtag  DW_TAG_enumerator
+     895                      .dwattr $C$DW$60, DW_AT_name("SYSCTL_PERIPH_CLK_SCIA")
+     896                      .dwattr $C$DW$60, DW_AT_const_value(0x07)
+     897                      .dwattr $C$DW$60, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     898                      .dwattr $C$DW$60, DW_AT_decl_line(0x130)
+     899                      .dwattr $C$DW$60, DW_AT_decl_column(0x05)
+     900              
+     901              $C$DW$61        .dwtag  DW_TAG_enumerator
+     902                      .dwattr $C$DW$61, DW_AT_name("SYSCTL_PERIPH_CLK_SCIB")
+     903                      .dwattr $C$DW$61, DW_AT_const_value(0x107)
+     904                      .dwattr $C$DW$61, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     905                      .dwattr $C$DW$61, DW_AT_decl_line(0x131)
+     906                      .dwattr $C$DW$61, DW_AT_decl_column(0x05)
+     907              
+     908              $C$DW$62        .dwtag  DW_TAG_enumerator
+     909                      .dwattr $C$DW$62, DW_AT_name("SYSCTL_PERIPH_CLK_SPIA")
+     910                      .dwattr $C$DW$62, DW_AT_const_value(0x08)
+     911                      .dwattr $C$DW$62, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     912                      .dwattr $C$DW$62, DW_AT_decl_line(0x132)
+     913                      .dwattr $C$DW$62, DW_AT_decl_column(0x05)
+     914              
+     915              $C$DW$63        .dwtag  DW_TAG_enumerator
+     916                      .dwattr $C$DW$63, DW_AT_name("SYSCTL_PERIPH_CLK_SPIB")
+     917                      .dwattr $C$DW$63, DW_AT_const_value(0x108)
+     918                      .dwattr $C$DW$63, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     919                      .dwattr $C$DW$63, DW_AT_decl_line(0x133)
+     920                      .dwattr $C$DW$63, DW_AT_decl_column(0x05)
+     921              
+     922              $C$DW$64        .dwtag  DW_TAG_enumerator
+     923                      .dwattr $C$DW$64, DW_AT_name("SYSCTL_PERIPH_CLK_I2CA")
+     924                      .dwattr $C$DW$64, DW_AT_const_value(0x09)
+     925                      .dwattr $C$DW$64, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     926                      .dwattr $C$DW$64, DW_AT_decl_line(0x134)
+     927                      .dwattr $C$DW$64, DW_AT_decl_column(0x05)
+     928              
+     929              $C$DW$65        .dwtag  DW_TAG_enumerator
+     930                      .dwattr $C$DW$65, DW_AT_name("SYSCTL_PERIPH_CLK_CANA")
+     931                      .dwattr $C$DW$65, DW_AT_const_value(0x0a)
+     932                      .dwattr $C$DW$65, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     933                      .dwattr $C$DW$65, DW_AT_decl_line(0x135)
+     934                      .dwattr $C$DW$65, DW_AT_decl_column(0x05)
+     935              
+     936              $C$DW$66        .dwtag  DW_TAG_enumerator
+     937                      .dwattr $C$DW$66, DW_AT_name("SYSCTL_PERIPH_CLK_CANB")
+     938                      .dwattr $C$DW$66, DW_AT_const_value(0x10a)
+     939                      .dwattr $C$DW$66, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     940                      .dwattr $C$DW$66, DW_AT_decl_line(0x136)
+     941                      .dwattr $C$DW$66, DW_AT_decl_column(0x05)
+     942              
+     943              $C$DW$67        .dwtag  DW_TAG_enumerator
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   19
+
+     944                      .dwattr $C$DW$67, DW_AT_name("SYSCTL_PERIPH_CLK_ADCA")
+     945                      .dwattr $C$DW$67, DW_AT_const_value(0x0d)
+     946                      .dwattr $C$DW$67, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     947                      .dwattr $C$DW$67, DW_AT_decl_line(0x137)
+     948                      .dwattr $C$DW$67, DW_AT_decl_column(0x05)
+     949              
+     950              $C$DW$68        .dwtag  DW_TAG_enumerator
+     951                      .dwattr $C$DW$68, DW_AT_name("SYSCTL_PERIPH_CLK_ADCB")
+     952                      .dwattr $C$DW$68, DW_AT_const_value(0x10d)
+     953                      .dwattr $C$DW$68, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     954                      .dwattr $C$DW$68, DW_AT_decl_line(0x138)
+     955                      .dwattr $C$DW$68, DW_AT_decl_column(0x05)
+     956              
+     957              $C$DW$69        .dwtag  DW_TAG_enumerator
+     958                      .dwattr $C$DW$69, DW_AT_name("SYSCTL_PERIPH_CLK_ADCC")
+     959                      .dwattr $C$DW$69, DW_AT_const_value(0x20d)
+     960                      .dwattr $C$DW$69, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     961                      .dwattr $C$DW$69, DW_AT_decl_line(0x139)
+     962                      .dwattr $C$DW$69, DW_AT_decl_column(0x05)
+     963              
+     964              $C$DW$70        .dwtag  DW_TAG_enumerator
+     965                      .dwattr $C$DW$70, DW_AT_name("SYSCTL_PERIPH_CLK_CMPSS1")
+     966                      .dwattr $C$DW$70, DW_AT_const_value(0x0e)
+     967                      .dwattr $C$DW$70, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     968                      .dwattr $C$DW$70, DW_AT_decl_line(0x13a)
+     969                      .dwattr $C$DW$70, DW_AT_decl_column(0x05)
+     970              
+     971              $C$DW$71        .dwtag  DW_TAG_enumerator
+     972                      .dwattr $C$DW$71, DW_AT_name("SYSCTL_PERIPH_CLK_CMPSS2")
+     973                      .dwattr $C$DW$71, DW_AT_const_value(0x10e)
+     974                      .dwattr $C$DW$71, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     975                      .dwattr $C$DW$71, DW_AT_decl_line(0x13b)
+     976                      .dwattr $C$DW$71, DW_AT_decl_column(0x05)
+     977              
+     978              $C$DW$72        .dwtag  DW_TAG_enumerator
+     979                      .dwattr $C$DW$72, DW_AT_name("SYSCTL_PERIPH_CLK_CMPSS3")
+     980                      .dwattr $C$DW$72, DW_AT_const_value(0x20e)
+     981                      .dwattr $C$DW$72, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     982                      .dwattr $C$DW$72, DW_AT_decl_line(0x13c)
+     983                      .dwattr $C$DW$72, DW_AT_decl_column(0x05)
+     984              
+     985              $C$DW$73        .dwtag  DW_TAG_enumerator
+     986                      .dwattr $C$DW$73, DW_AT_name("SYSCTL_PERIPH_CLK_CMPSS4")
+     987                      .dwattr $C$DW$73, DW_AT_const_value(0x30e)
+     988                      .dwattr $C$DW$73, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     989                      .dwattr $C$DW$73, DW_AT_decl_line(0x13d)
+     990                      .dwattr $C$DW$73, DW_AT_decl_column(0x05)
+     991              
+     992              $C$DW$74        .dwtag  DW_TAG_enumerator
+     993                      .dwattr $C$DW$74, DW_AT_name("SYSCTL_PERIPH_CLK_CMPSS5")
+     994                      .dwattr $C$DW$74, DW_AT_const_value(0x40e)
+     995                      .dwattr $C$DW$74, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+     996                      .dwattr $C$DW$74, DW_AT_decl_line(0x13e)
+     997                      .dwattr $C$DW$74, DW_AT_decl_column(0x05)
+     998              
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   20
+
+     999              $C$DW$75        .dwtag  DW_TAG_enumerator
+    1000                      .dwattr $C$DW$75, DW_AT_name("SYSCTL_PERIPH_CLK_CMPSS6")
+    1001                      .dwattr $C$DW$75, DW_AT_const_value(0x50e)
+    1002                      .dwattr $C$DW$75, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1003                      .dwattr $C$DW$75, DW_AT_decl_line(0x13f)
+    1004                      .dwattr $C$DW$75, DW_AT_decl_column(0x05)
+    1005              
+    1006              $C$DW$76        .dwtag  DW_TAG_enumerator
+    1007                      .dwattr $C$DW$76, DW_AT_name("SYSCTL_PERIPH_CLK_CMPSS7")
+    1008                      .dwattr $C$DW$76, DW_AT_const_value(0x60e)
+    1009                      .dwattr $C$DW$76, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1010                      .dwattr $C$DW$76, DW_AT_decl_line(0x140)
+    1011                      .dwattr $C$DW$76, DW_AT_decl_column(0x05)
+    1012              
+    1013              $C$DW$77        .dwtag  DW_TAG_enumerator
+    1014                      .dwattr $C$DW$77, DW_AT_name("SYSCTL_PERIPH_CLK_PGA1")
+    1015                      .dwattr $C$DW$77, DW_AT_const_value(0x0f)
+    1016                      .dwattr $C$DW$77, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1017                      .dwattr $C$DW$77, DW_AT_decl_line(0x141)
+    1018                      .dwattr $C$DW$77, DW_AT_decl_column(0x05)
+    1019              
+    1020              $C$DW$78        .dwtag  DW_TAG_enumerator
+    1021                      .dwattr $C$DW$78, DW_AT_name("SYSCTL_PERIPH_CLK_PGA2")
+    1022                      .dwattr $C$DW$78, DW_AT_const_value(0x10f)
+    1023                      .dwattr $C$DW$78, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1024                      .dwattr $C$DW$78, DW_AT_decl_line(0x142)
+    1025                      .dwattr $C$DW$78, DW_AT_decl_column(0x05)
+    1026              
+    1027              $C$DW$79        .dwtag  DW_TAG_enumerator
+    1028                      .dwattr $C$DW$79, DW_AT_name("SYSCTL_PERIPH_CLK_PGA3")
+    1029                      .dwattr $C$DW$79, DW_AT_const_value(0x20f)
+    1030                      .dwattr $C$DW$79, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1031                      .dwattr $C$DW$79, DW_AT_decl_line(0x143)
+    1032                      .dwattr $C$DW$79, DW_AT_decl_column(0x05)
+    1033              
+    1034              $C$DW$80        .dwtag  DW_TAG_enumerator
+    1035                      .dwattr $C$DW$80, DW_AT_name("SYSCTL_PERIPH_CLK_PGA4")
+    1036                      .dwattr $C$DW$80, DW_AT_const_value(0x30f)
+    1037                      .dwattr $C$DW$80, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1038                      .dwattr $C$DW$80, DW_AT_decl_line(0x144)
+    1039                      .dwattr $C$DW$80, DW_AT_decl_column(0x05)
+    1040              
+    1041              $C$DW$81        .dwtag  DW_TAG_enumerator
+    1042                      .dwattr $C$DW$81, DW_AT_name("SYSCTL_PERIPH_CLK_PGA5")
+    1043                      .dwattr $C$DW$81, DW_AT_const_value(0x40f)
+    1044                      .dwattr $C$DW$81, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1045                      .dwattr $C$DW$81, DW_AT_decl_line(0x145)
+    1046                      .dwattr $C$DW$81, DW_AT_decl_column(0x05)
+    1047              
+    1048              $C$DW$82        .dwtag  DW_TAG_enumerator
+    1049                      .dwattr $C$DW$82, DW_AT_name("SYSCTL_PERIPH_CLK_PGA6")
+    1050                      .dwattr $C$DW$82, DW_AT_const_value(0x50f)
+    1051                      .dwattr $C$DW$82, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1052                      .dwattr $C$DW$82, DW_AT_decl_line(0x146)
+    1053                      .dwattr $C$DW$82, DW_AT_decl_column(0x05)
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   21
+
+    1054              
+    1055              $C$DW$83        .dwtag  DW_TAG_enumerator
+    1056                      .dwattr $C$DW$83, DW_AT_name("SYSCTL_PERIPH_CLK_PGA7")
+    1057                      .dwattr $C$DW$83, DW_AT_const_value(0x60f)
+    1058                      .dwattr $C$DW$83, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1059                      .dwattr $C$DW$83, DW_AT_decl_line(0x147)
+    1060                      .dwattr $C$DW$83, DW_AT_decl_column(0x05)
+    1061              
+    1062              $C$DW$84        .dwtag  DW_TAG_enumerator
+    1063                      .dwattr $C$DW$84, DW_AT_name("SYSCTL_PERIPH_CLK_DACA")
+    1064                      .dwattr $C$DW$84, DW_AT_const_value(0x1010)
+    1065                      .dwattr $C$DW$84, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1066                      .dwattr $C$DW$84, DW_AT_decl_line(0x148)
+    1067                      .dwattr $C$DW$84, DW_AT_decl_column(0x05)
+    1068              
+    1069              $C$DW$85        .dwtag  DW_TAG_enumerator
+    1070                      .dwattr $C$DW$85, DW_AT_name("SYSCTL_PERIPH_CLK_DACB")
+    1071                      .dwattr $C$DW$85, DW_AT_const_value(0x1110)
+    1072                      .dwattr $C$DW$85, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1073                      .dwattr $C$DW$85, DW_AT_decl_line(0x149)
+    1074                      .dwattr $C$DW$85, DW_AT_decl_column(0x05)
+    1075              
+    1076              $C$DW$86        .dwtag  DW_TAG_enumerator
+    1077                      .dwattr $C$DW$86, DW_AT_name("SYSCTL_PERIPH_CLK_CLB1")
+    1078                      .dwattr $C$DW$86, DW_AT_const_value(0x11)
+    1079                      .dwattr $C$DW$86, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1080                      .dwattr $C$DW$86, DW_AT_decl_line(0x14a)
+    1081                      .dwattr $C$DW$86, DW_AT_decl_column(0x05)
+    1082              
+    1083              $C$DW$87        .dwtag  DW_TAG_enumerator
+    1084                      .dwattr $C$DW$87, DW_AT_name("SYSCTL_PERIPH_CLK_CLB2")
+    1085                      .dwattr $C$DW$87, DW_AT_const_value(0x111)
+    1086                      .dwattr $C$DW$87, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1087                      .dwattr $C$DW$87, DW_AT_decl_line(0x14b)
+    1088                      .dwattr $C$DW$87, DW_AT_decl_column(0x05)
+    1089              
+    1090              $C$DW$88        .dwtag  DW_TAG_enumerator
+    1091                      .dwattr $C$DW$88, DW_AT_name("SYSCTL_PERIPH_CLK_CLB3")
+    1092                      .dwattr $C$DW$88, DW_AT_const_value(0x211)
+    1093                      .dwattr $C$DW$88, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1094                      .dwattr $C$DW$88, DW_AT_decl_line(0x14c)
+    1095                      .dwattr $C$DW$88, DW_AT_decl_column(0x05)
+    1096              
+    1097              $C$DW$89        .dwtag  DW_TAG_enumerator
+    1098                      .dwattr $C$DW$89, DW_AT_name("SYSCTL_PERIPH_CLK_CLB4")
+    1099                      .dwattr $C$DW$89, DW_AT_const_value(0x311)
+    1100                      .dwattr $C$DW$89, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1101                      .dwattr $C$DW$89, DW_AT_decl_line(0x14d)
+    1102                      .dwattr $C$DW$89, DW_AT_decl_column(0x05)
+    1103              
+    1104              $C$DW$90        .dwtag  DW_TAG_enumerator
+    1105                      .dwattr $C$DW$90, DW_AT_name("SYSCTL_PERIPH_CLK_FSITXA")
+    1106                      .dwattr $C$DW$90, DW_AT_const_value(0x12)
+    1107                      .dwattr $C$DW$90, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1108                      .dwattr $C$DW$90, DW_AT_decl_line(0x14e)
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   22
+
+    1109                      .dwattr $C$DW$90, DW_AT_decl_column(0x05)
+    1110              
+    1111              $C$DW$91        .dwtag  DW_TAG_enumerator
+    1112                      .dwattr $C$DW$91, DW_AT_name("SYSCTL_PERIPH_CLK_FSIRXA")
+    1113                      .dwattr $C$DW$91, DW_AT_const_value(0x112)
+    1114                      .dwattr $C$DW$91, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1115                      .dwattr $C$DW$91, DW_AT_decl_line(0x14f)
+    1116                      .dwattr $C$DW$91, DW_AT_decl_column(0x05)
+    1117              
+    1118              $C$DW$92        .dwtag  DW_TAG_enumerator
+    1119                      .dwattr $C$DW$92, DW_AT_name("SYSCTL_PERIPH_CLK_LINA")
+    1120                      .dwattr $C$DW$92, DW_AT_const_value(0x13)
+    1121                      .dwattr $C$DW$92, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1122                      .dwattr $C$DW$92, DW_AT_decl_line(0x150)
+    1123                      .dwattr $C$DW$92, DW_AT_decl_column(0x05)
+    1124              
+    1125              $C$DW$93        .dwtag  DW_TAG_enumerator
+    1126                      .dwattr $C$DW$93, DW_AT_name("SYSCTL_PERIPH_CLK_PMBUSA")
+    1127                      .dwattr $C$DW$93, DW_AT_const_value(0x14)
+    1128                      .dwattr $C$DW$93, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1129                      .dwattr $C$DW$93, DW_AT_decl_line(0x151)
+    1130                      .dwattr $C$DW$93, DW_AT_decl_column(0x05)
+    1131              
+    1132              $C$DW$94        .dwtag  DW_TAG_enumerator
+    1133                      .dwattr $C$DW$94, DW_AT_name("SYSCTL_PERIPH_CLK_DCC0")
+    1134                      .dwattr $C$DW$94, DW_AT_const_value(0x15)
+    1135                      .dwattr $C$DW$94, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1136                      .dwattr $C$DW$94, DW_AT_decl_line(0x152)
+    1137                      .dwattr $C$DW$94, DW_AT_decl_column(0x05)
+    1138              
+    1139                      .dwattr $C$DW$T$19, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c
+    1140                      .dwattr $C$DW$T$19, DW_AT_decl_line(0x116)
+    1141                      .dwattr $C$DW$T$19, DW_AT_decl_column(0x01)
+    1142                      .dwendtag $C$DW$T$19
+    1143              
+    1144                      .dwendtag $C$DW$TU$19
+    1145              
+    1146              
+    1147              $C$DW$TU$20     .dwtag  DW_TAG_type_unit
+    1148                      .dwmtype  $C$DW$T$20
+    1149              $C$DW$T$20      .dwtag  DW_TAG_typedef
+    1150                      .dwattr $C$DW$T$20, DW_AT_name("SysCtl_PeripheralPCLOCKCR")
+    1151                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$T$19)
+    1152                      .dwattr $C$DW$T$20, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c
+    1153                      .dwattr $C$DW$T$20, DW_AT_decl_line(0x153)
+    1154                      .dwattr $C$DW$T$20, DW_AT_decl_column(0x03)
+    1155              
+    1156                      .dwendtag $C$DW$TU$20
+    1157              
+    1158              
+    1159              $C$DW$TU$21     .dwtag  DW_TAG_type_unit
+    1160                      .dwmtype  $C$DW$T$21
+    1161              
+    1162              $C$DW$T$21      .dwtag  DW_TAG_enumeration_type
+    1163                      .dwattr $C$DW$T$21, DW_AT_byte_size(0x01)
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   23
+
+    1164              $C$DW$95        .dwtag  DW_TAG_enumerator
+    1165                      .dwattr $C$DW$95, DW_AT_name("SYSCTL_LSPCLK_PRESCALE_1")
+    1166                      .dwattr $C$DW$95, DW_AT_const_value(0x00)
+    1167                      .dwattr $C$DW$95, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1168                      .dwattr $C$DW$95, DW_AT_decl_line(0x1cf)
+    1169                      .dwattr $C$DW$95, DW_AT_decl_column(0x05)
+    1170              
+    1171              $C$DW$96        .dwtag  DW_TAG_enumerator
+    1172                      .dwattr $C$DW$96, DW_AT_name("SYSCTL_LSPCLK_PRESCALE_2")
+    1173                      .dwattr $C$DW$96, DW_AT_const_value(0x01)
+    1174                      .dwattr $C$DW$96, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1175                      .dwattr $C$DW$96, DW_AT_decl_line(0x1d0)
+    1176                      .dwattr $C$DW$96, DW_AT_decl_column(0x05)
+    1177              
+    1178              $C$DW$97        .dwtag  DW_TAG_enumerator
+    1179                      .dwattr $C$DW$97, DW_AT_name("SYSCTL_LSPCLK_PRESCALE_4")
+    1180                      .dwattr $C$DW$97, DW_AT_const_value(0x02)
+    1181                      .dwattr $C$DW$97, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1182                      .dwattr $C$DW$97, DW_AT_decl_line(0x1d1)
+    1183                      .dwattr $C$DW$97, DW_AT_decl_column(0x05)
+    1184              
+    1185              $C$DW$98        .dwtag  DW_TAG_enumerator
+    1186                      .dwattr $C$DW$98, DW_AT_name("SYSCTL_LSPCLK_PRESCALE_6")
+    1187                      .dwattr $C$DW$98, DW_AT_const_value(0x03)
+    1188                      .dwattr $C$DW$98, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1189                      .dwattr $C$DW$98, DW_AT_decl_line(0x1d2)
+    1190                      .dwattr $C$DW$98, DW_AT_decl_column(0x05)
+    1191              
+    1192              $C$DW$99        .dwtag  DW_TAG_enumerator
+    1193                      .dwattr $C$DW$99, DW_AT_name("SYSCTL_LSPCLK_PRESCALE_8")
+    1194                      .dwattr $C$DW$99, DW_AT_const_value(0x04)
+    1195                      .dwattr $C$DW$99, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c20
+    1196                      .dwattr $C$DW$99, DW_AT_decl_line(0x1d3)
+    1197                      .dwattr $C$DW$99, DW_AT_decl_column(0x05)
+    1198              
+    1199              $C$DW$100       .dwtag  DW_TAG_enumerator
+    1200                      .dwattr $C$DW$100, DW_AT_name("SYSCTL_LSPCLK_PRESCALE_10")
+    1201                      .dwattr $C$DW$100, DW_AT_const_value(0x05)
+    1202                      .dwattr $C$DW$100, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2
+    1203                      .dwattr $C$DW$100, DW_AT_decl_line(0x1d4)
+    1204                      .dwattr $C$DW$100, DW_AT_decl_column(0x05)
+    1205              
+    1206              $C$DW$101       .dwtag  DW_TAG_enumerator
+    1207                      .dwattr $C$DW$101, DW_AT_name("SYSCTL_LSPCLK_PRESCALE_12")
+    1208                      .dwattr $C$DW$101, DW_AT_const_value(0x06)
+    1209                      .dwattr $C$DW$101, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2
+    1210                      .dwattr $C$DW$101, DW_AT_decl_line(0x1d5)
+    1211                      .dwattr $C$DW$101, DW_AT_decl_column(0x05)
+    1212              
+    1213              $C$DW$102       .dwtag  DW_TAG_enumerator
+    1214                      .dwattr $C$DW$102, DW_AT_name("SYSCTL_LSPCLK_PRESCALE_14")
+    1215                      .dwattr $C$DW$102, DW_AT_const_value(0x07)
+    1216                      .dwattr $C$DW$102, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2
+    1217                      .dwattr $C$DW$102, DW_AT_decl_line(0x1d6)
+    1218                      .dwattr $C$DW$102, DW_AT_decl_column(0x05)
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   24
+
+    1219              
+    1220                      .dwattr $C$DW$T$21, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c
+    1221                      .dwattr $C$DW$T$21, DW_AT_decl_line(0x1ce)
+    1222                      .dwattr $C$DW$T$21, DW_AT_decl_column(0x01)
+    1223                      .dwendtag $C$DW$T$21
+    1224              
+    1225                      .dwendtag $C$DW$TU$21
+    1226              
+    1227              
+    1228              $C$DW$TU$22     .dwtag  DW_TAG_type_unit
+    1229                      .dwmtype  $C$DW$T$22
+    1230              $C$DW$T$22      .dwtag  DW_TAG_typedef
+    1231                      .dwattr $C$DW$T$22, DW_AT_name("SysCtl_LSPCLKPrescaler")
+    1232                      .dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$21)
+    1233                      .dwattr $C$DW$T$22, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c
+    1234                      .dwattr $C$DW$T$22, DW_AT_decl_line(0x1d7)
+    1235                      .dwattr $C$DW$T$22, DW_AT_decl_column(0x03)
+    1236              
+    1237                      .dwendtag $C$DW$TU$22
+    1238              
+    1239              
+    1240              $C$DW$TU$23     .dwtag  DW_TAG_type_unit
+    1241                      .dwmtype  $C$DW$T$23
+    1242              
+    1243              $C$DW$T$23      .dwtag  DW_TAG_enumeration_type
+    1244                      .dwattr $C$DW$T$23, DW_AT_byte_size(0x01)
+    1245              $C$DW$103       .dwtag  DW_TAG_enumerator
+    1246                      .dwattr $C$DW$103, DW_AT_name("GPIO_PORT_A")
+    1247                      .dwattr $C$DW$103, DW_AT_const_value(0x00)
+    1248                      .dwattr $C$DW$103, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2
+    1249                      .dwattr $C$DW$103, DW_AT_decl_line(0xb9)
+    1250                      .dwattr $C$DW$103, DW_AT_decl_column(0x05)
+    1251              
+    1252              $C$DW$104       .dwtag  DW_TAG_enumerator
+    1253                      .dwattr $C$DW$104, DW_AT_name("GPIO_PORT_B")
+    1254                      .dwattr $C$DW$104, DW_AT_const_value(0x01)
+    1255                      .dwattr $C$DW$104, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2
+    1256                      .dwattr $C$DW$104, DW_AT_decl_line(0xba)
+    1257                      .dwattr $C$DW$104, DW_AT_decl_column(0x05)
+    1258              
+    1259              $C$DW$105       .dwtag  DW_TAG_enumerator
+    1260                      .dwattr $C$DW$105, DW_AT_name("GPIO_PORT_H")
+    1261                      .dwattr $C$DW$105, DW_AT_const_value(0x07)
+    1262                      .dwattr $C$DW$105, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c2
+    1263                      .dwattr $C$DW$105, DW_AT_decl_line(0xbb)
+    1264                      .dwattr $C$DW$105, DW_AT_decl_column(0x05)
+    1265              
+    1266                      .dwattr $C$DW$T$23, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c
+    1267                      .dwattr $C$DW$T$23, DW_AT_decl_line(0xb8)
+    1268                      .dwattr $C$DW$T$23, DW_AT_decl_column(0x01)
+    1269                      .dwendtag $C$DW$T$23
+    1270              
+    1271                      .dwendtag $C$DW$TU$23
+    1272              
+    1273              
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   25
+
+    1274              $C$DW$TU$24     .dwtag  DW_TAG_type_unit
+    1275                      .dwmtype  $C$DW$T$24
+    1276              $C$DW$T$24      .dwtag  DW_TAG_typedef
+    1277                      .dwattr $C$DW$T$24, DW_AT_name("GPIO_Port")
+    1278                      .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$23)
+    1279                      .dwattr $C$DW$T$24, DW_AT_decl_file("/Applications/ti/ccs1120/C2000Ware_DigitalPower_SDK_4_00_00_00/c
+    1280                      .dwattr $C$DW$T$24, DW_AT_decl_line(0xbc)
+    1281                      .dwattr $C$DW$T$24, DW_AT_decl_column(0x03)
+    1282              
+    1283                      .dwendtag $C$DW$TU$24
+    1284              
+    1285              
+    1286              $C$DW$TU$2      .dwtag  DW_TAG_type_unit
+    1287                      .dwmtype  $C$DW$T$2
+    1288              $C$DW$T$2       .dwtag  DW_TAG_unspecified_type
+    1289                      .dwattr $C$DW$T$2, DW_AT_name("void")
+    1290              
+    1291                      .dwendtag $C$DW$TU$2
+    1292              
+    1293              
+    1294              $C$DW$TU$4      .dwtag  DW_TAG_type_unit
+    1295                      .dwmtype  $C$DW$T$4
+    1296              $C$DW$T$4       .dwtag  DW_TAG_base_type
+    1297                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+    1298                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+    1299                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+    1300              
+    1301                      .dwendtag $C$DW$TU$4
+    1302              
+    1303              
+    1304              $C$DW$TU$5      .dwtag  DW_TAG_type_unit
+    1305                      .dwmtype  $C$DW$T$5
+    1306              $C$DW$T$5       .dwtag  DW_TAG_base_type
+    1307                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+    1308                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+    1309                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+    1310              
+    1311                      .dwendtag $C$DW$TU$5
+    1312              
+    1313              
+    1314              $C$DW$TU$6      .dwtag  DW_TAG_type_unit
+    1315                      .dwmtype  $C$DW$T$6
+    1316              $C$DW$T$6       .dwtag  DW_TAG_base_type
+    1317                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1318                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+    1319                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+    1320              
+    1321                      .dwendtag $C$DW$TU$6
+    1322              
+    1323              
+    1324              $C$DW$TU$7      .dwtag  DW_TAG_type_unit
+    1325                      .dwmtype  $C$DW$T$7
+    1326              $C$DW$T$7       .dwtag  DW_TAG_base_type
+    1327                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+    1328                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   26
+
+    1329                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x02)
+    1330              
+    1331                      .dwendtag $C$DW$TU$7
+    1332              
+    1333              
+    1334              $C$DW$TU$8      .dwtag  DW_TAG_type_unit
+    1335                      .dwmtype  $C$DW$T$8
+    1336              $C$DW$T$8       .dwtag  DW_TAG_base_type
+    1337                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+    1338                      .dwattr $C$DW$T$8, DW_AT_name("short")
+    1339                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+    1340              
+    1341                      .dwendtag $C$DW$TU$8
+    1342              
+    1343              
+    1344              $C$DW$TU$9      .dwtag  DW_TAG_type_unit
+    1345                      .dwmtype  $C$DW$T$9
+    1346              $C$DW$T$9       .dwtag  DW_TAG_base_type
+    1347                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+    1348                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+    1349                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+    1350              
+    1351                      .dwendtag $C$DW$TU$9
+    1352              
+    1353              
+    1354              $C$DW$TU$10     .dwtag  DW_TAG_type_unit
+    1355                      .dwmtype  $C$DW$T$10
+    1356              $C$DW$T$10      .dwtag  DW_TAG_base_type
+    1357                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1358                      .dwattr $C$DW$T$10, DW_AT_name("int")
+    1359                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+    1360              
+    1361                      .dwendtag $C$DW$TU$10
+    1362              
+    1363              
+    1364              $C$DW$TU$11     .dwtag  DW_TAG_type_unit
+    1365                      .dwmtype  $C$DW$T$11
+    1366              $C$DW$T$11      .dwtag  DW_TAG_base_type
+    1367                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1368                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+    1369                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+    1370              
+    1371                      .dwendtag $C$DW$TU$11
+    1372              
+    1373              
+    1374              $C$DW$TU$33     .dwtag  DW_TAG_type_unit
+    1375                      .dwmtype  $C$DW$T$33
+    1376              $C$DW$T$33      .dwtag  DW_TAG_typedef
+    1377                      .dwattr $C$DW$T$33, DW_AT_name("__uint16_t")
+    1378                      .dwattr $C$DW$T$33, DW_AT_type(*$C$DW$T$11)
+    1379                      .dwattr $C$DW$T$33, DW_AT_decl_file("/Applications/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_21.6.0.
+    1380                      .dwattr $C$DW$T$33, DW_AT_decl_line(0x41)
+    1381                      .dwattr $C$DW$T$33, DW_AT_decl_column(0x1c)
+    1382              
+    1383                      .dwendtag $C$DW$TU$33
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   27
+
+    1384              
+    1385              
+    1386              $C$DW$TU$34     .dwtag  DW_TAG_type_unit
+    1387                      .dwmtype  $C$DW$T$34
+    1388              $C$DW$T$34      .dwtag  DW_TAG_typedef
+    1389                      .dwattr $C$DW$T$34, DW_AT_name("uint16_t")
+    1390                      .dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$33)
+    1391                      .dwattr $C$DW$T$34, DW_AT_decl_file("/Applications/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_21.6.0.
+    1392                      .dwattr $C$DW$T$34, DW_AT_decl_line(0x41)
+    1393                      .dwattr $C$DW$T$34, DW_AT_decl_column(0x15)
+    1394              
+    1395                      .dwendtag $C$DW$TU$34
+    1396              
+    1397              
+    1398              $C$DW$TU$12     .dwtag  DW_TAG_type_unit
+    1399                      .dwmtype  $C$DW$T$12
+    1400              $C$DW$T$12      .dwtag  DW_TAG_base_type
+    1401                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+    1402                      .dwattr $C$DW$T$12, DW_AT_name("long")
+    1403                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+    1404              
+    1405                      .dwendtag $C$DW$TU$12
+    1406              
+    1407              
+    1408              $C$DW$TU$13     .dwtag  DW_TAG_type_unit
+    1409                      .dwmtype  $C$DW$T$13
+    1410              $C$DW$T$13      .dwtag  DW_TAG_base_type
+    1411                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1412                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+    1413                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+    1414              
+    1415                      .dwendtag $C$DW$TU$13
+    1416              
+    1417              
+    1418              $C$DW$TU$31     .dwtag  DW_TAG_type_unit
+    1419                      .dwmtype  $C$DW$T$31
+    1420              $C$DW$T$31      .dwtag  DW_TAG_typedef
+    1421                      .dwattr $C$DW$T$31, DW_AT_name("__uint32_t")
+    1422                      .dwattr $C$DW$T$31, DW_AT_type(*$C$DW$T$13)
+    1423                      .dwattr $C$DW$T$31, DW_AT_decl_file("/Applications/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_21.6.0.
+    1424                      .dwattr $C$DW$T$31, DW_AT_decl_line(0x43)
+    1425                      .dwattr $C$DW$T$31, DW_AT_decl_column(0x1c)
+    1426              
+    1427                      .dwendtag $C$DW$TU$31
+    1428              
+    1429              
+    1430              $C$DW$TU$32     .dwtag  DW_TAG_type_unit
+    1431                      .dwmtype  $C$DW$T$32
+    1432              $C$DW$T$32      .dwtag  DW_TAG_typedef
+    1433                      .dwattr $C$DW$T$32, DW_AT_name("uint32_t")
+    1434                      .dwattr $C$DW$T$32, DW_AT_type(*$C$DW$T$31)
+    1435                      .dwattr $C$DW$T$32, DW_AT_decl_file("/Applications/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_21.6.0.
+    1436                      .dwattr $C$DW$T$32, DW_AT_decl_line(0x46)
+    1437                      .dwattr $C$DW$T$32, DW_AT_decl_column(0x15)
+    1438              
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   28
+
+    1439                      .dwendtag $C$DW$TU$32
+    1440              
+    1441              
+    1442              $C$DW$TU$50     .dwtag  DW_TAG_type_unit
+    1443                      .dwmtype  $C$DW$T$50
+    1444              $C$DW$T$50      .dwtag  DW_TAG_pointer_type
+    1445                      .dwattr $C$DW$T$50, DW_AT_type(*$C$DW$T$32)
+    1446                      .dwattr $C$DW$T$50, DW_AT_address_class(0x20)
+    1447              
+    1448                      .dwendtag $C$DW$TU$50
+    1449              
+    1450              
+    1451              $C$DW$TU$14     .dwtag  DW_TAG_type_unit
+    1452                      .dwmtype  $C$DW$T$14
+    1453              $C$DW$T$14      .dwtag  DW_TAG_base_type
+    1454                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+    1455                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+    1456                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+    1457              
+    1458                      .dwendtag $C$DW$TU$14
+    1459              
+    1460              
+    1461              $C$DW$TU$15     .dwtag  DW_TAG_type_unit
+    1462                      .dwmtype  $C$DW$T$15
+    1463              $C$DW$T$15      .dwtag  DW_TAG_base_type
+    1464                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+    1465                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+    1466                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+    1467              
+    1468                      .dwendtag $C$DW$TU$15
+    1469              
+    1470              
+    1471              $C$DW$TU$16     .dwtag  DW_TAG_type_unit
+    1472                      .dwmtype  $C$DW$T$16
+    1473              $C$DW$T$16      .dwtag  DW_TAG_base_type
+    1474                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+    1475                      .dwattr $C$DW$T$16, DW_AT_name("float")
+    1476                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+    1477              
+    1478                      .dwendtag $C$DW$TU$16
+    1479              
+    1480              
+    1481              $C$DW$TU$17     .dwtag  DW_TAG_type_unit
+    1482                      .dwmtype  $C$DW$T$17
+    1483              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1484                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1485                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1486                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x04)
+    1487              
+    1488                      .dwendtag $C$DW$TU$17
+    1489              
+    1490              
+    1491              $C$DW$TU$18     .dwtag  DW_TAG_type_unit
+    1492                      .dwmtype  $C$DW$T$18
+    1493              $C$DW$T$18      .dwtag  DW_TAG_base_type
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+device.asm                                                           PAGE   29
+
+    1494                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1495                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1496                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x04)
+    1497              
+    1498                      .dwendtag $C$DW$TU$18
+    1499              
+    1500              
+    1501              $C$DW$TU$39     .dwtag  DW_TAG_type_unit
+    1502                      .dwmtype  $C$DW$T$39
+    1503              $C$DW$T$39      .dwtag  DW_TAG_pointer_type
+    1504                      .dwattr $C$DW$T$39, DW_AT_type(*$C$DW$T$5)
+    1505                      .dwattr $C$DW$T$39, DW_AT_address_class(0x20)
+    1506              
+    1507                      .dwendtag $C$DW$TU$39
+    1508              
+    1509              
+    1510              $C$DW$TU$51     .dwtag  DW_TAG_type_unit
+    1511                      .dwmtype  $C$DW$T$51
+    1512              $C$DW$T$51      .dwtag  DW_TAG_base_type
+    1513                      .dwattr $C$DW$T$51, DW_AT_encoding(DW_ATE_unsigned_char)
+    1514                      .dwattr $C$DW$T$51, DW_AT_name("unsigned char")
+    1515                      .dwattr $C$DW$T$51, DW_AT_byte_size(0x01)
+    1516              
+    1517                      .dwendtag $C$DW$TU$51
+    1518              
+
+No Assembly Errors, No Assembly Warnings

@@ -1,0 +1,127 @@
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+../libraries/DCL/DCL_PI_C1.asm                                       PAGE    1
+
+       1              ; DCL_PI_C1.asm - Series PI controller
+       2              ;
+       3              ; Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com/
+       4              ; ALL RIGHTS RESERVED 
+       5              
+       6                        .if $defined(__TI_EABI__)
+       7                              .if __TI_EABI__
+       8                              .asg    DCL_runPI_C1, _DCL_runPI_C1
+       9                              .endif
+      10                    .endif
+      11              
+      12        0000  FASTCR_PI_C1    .set    0               ; set to 1 to enable shadowed context save/restore
+      13              
+      14                              .global _DCL_runPI_C1
+      15              
+      16 00000000                       .sect   "dclfuncs"
+      17              
+      18              ; 11/14/2017: [RP] added XAR1 to context save
+      19              
+      20              ; C prototype: float DCL_runPI_C1(DCL_PI *p, float32_t rk, float32_t yk)
+      21              ; argument 1 = *p : 32-bit PI structure address [XAR4]
+      22              ; argument 2 = rk : 32-bit floating-point reference [R0H]
+      23              ; argument 3 = yk : 32-bit floating-point feedback [R1H]
+      24              ; return = uk : 32-bit floating-point [R0H]
+      25              
+      26                              .align  2
+      27              
+      28 00000000       _DCL_runPI_C1:
+      29                              .asmfunc
+      30              ; context save
+      31 00000000 B2BD                  MOVL            *SP++, XAR1
+      32                      .if FASTCR_PI_C1 = 0
+      33 00000001 E203                  MOV32           *SP++, R4H
+         00000002 04BD 
+      34 00000003 E203                  MOV32           *SP++, R5H
+         00000004 05BD 
+      35 00000005 E203                  MOV32           *SP++, R6H
+         00000006 06BD 
+      36                      .else
+      37                              SAVE
+      38                      .endif
+      39              
+      40              ; servo error
+      41 00000007 E720                  SUBF32          R4H, R0H, R1H                           ; R4H = v1
+         00000008 0044 
+      42              
+      43              ; proportional path
+      44 00000009 E2AF                  MOV32           R5H, *+XAR4[0]                          ; R5H = Kpa
+         0000000a 05C4 
+      45 0000000b E700                  MPYF32          R6H, R4H, R5H                           ; R6H = v2
+         0000000c 0166 
+      46              
+      47              ; integral path
+      48 0000000d E2AF                  MOV32           R5H, *+XAR4[2]                          ; R5H = Kia
+         0000000e 05D4 
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+../libraries/DCL/DCL_PI_C1.asm                                       PAGE    2
+
+      49 0000000f E700                  MPYF32          R4H, R5H, R6H                           ; R4H = v3
+         00000010 01AC 
+      50 00000011 28A1                  MOV                     AR1, #0xA                                       ; AR1 = 10
+         00000012 000A 
+      51 00000013 E2AF                  MOV32           R5H, *+XAR4[AR1]                        ; R5H = i6
+         00000014 059C 
+      52 00000015 E700                  MPYF32          R3H, R4H, R5H                           ; R3H = v8
+         00000016 0163 
+      53 00000017 E2AF                  MOV32           R4H, *+XAR4[4]                          ; R4H = i10
+         00000018 04E4 
+      54 00000019 E710                  ADDF32          R5H, R4H, R3H                           ; R5H = v4
+         0000001a 00E5 
+      55 0000001b E591                  ZERO            R1H                                                     ; R1H = 0.0f
+      56 0000001c E203                  MOV32           *+XAR4[4], R5H                          ; save i10
+         0000001d 05E4 
+      57              
+      58              ; control
+      59 0000001e E710                  ADDF32          R0H, R5H, R6H                           ; R0H = v5
+         0000001f 01A8 
+      60 00000020 E88F                  ADDF32          R5H, R1H, #1.0                          ; R5H = 1.0f
+         00000021 E00D 
+      61 00000022 E2AF                  MOV32           R3H, *+XAR4[6]                          ; R3H = Umaxa
+         00000023 03F4 
+      62 00000024 E69D                  MINF32          R0H, R3H                                        ; if (v5 > Umaxa) R0H = Umax 
+         00000025 0358 
+      63              ||              MOV32           R5H, R1H                                        ; R5H = 0.0f
+      64 00000026 28A0                  MOV                     AR0, #8                                         ; AR0 = 8
+         00000027 0008 
+      65 00000028 E2AF                  MOV32           R3H, *+XAR4[AR0]                        ; R3H = Umina
+         00000029 0394 
+      66 0000002a E69C                  MAXF32          R0H, R3H                                        ; if (v5 < Umina) R0H = Umin 
+         0000002b 0358 
+      67              ||              MOV32           R5H, R1H                                        ; R5H = 0.0f
+      68              
+      69              ; anti-windup
+      70 0000002c 7700                  NOP                                                                             ; delay slot
+      71 0000002d E203                  MOV32           *+XAR4[AR1], R5H                        ; save i6
+         0000002e 059C 
+      72              
+      73              ; context restore
+      74                      .if FASTCR_PI_C1 = 0
+      75 0000002f E2AE                  MOV32           R6H, *--SP, UNC                         ; delay slot
+         00000030 06BE 
+      76 00000031 E2AE              MOV32       R5H, *--SP, UNC
+         00000032 05BE 
+      77 00000033 E2AE              MOV32       R4H, *--SP, UNC
+         00000034 04BE 
+      78                      .else
+      79                              RESTORE
+      80                      .endif
+      81 00000035 8BBE              MOVL                XAR1, *--SP
+      82 00000036 0006                  LRETR
+      83                              .endasmfunc
+      84              
+      85                              .end
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+../libraries/DCL/DCL_PI_C1.asm                                       PAGE    3
+
+
+No Assembly Errors, No Assembly Warnings

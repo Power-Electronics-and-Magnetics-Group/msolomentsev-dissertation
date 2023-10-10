@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name "DAHB Parts")(type "KiCad")(uri "${KIPRJMOD}/board_v5.pretty")(options "")(descr ""))
+  (lib (name "logo")(type "KiCad")(uri "${KIPRJMOD}/Texas_Logos.pretty")(options "")(descr ""))
+)

@@ -1,0 +1,82 @@
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+../libraries/DCL/DCL_PI_C4.asm                                       PAGE    1
+
+       1              ; DCL_PI_C4.asm - Parallel form PI controller
+       2              ;
+       3              ; Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com/
+       4              ; ALL RIGHTS RESERVED 
+       5              
+       6                        .if $defined(__TI_EABI__)
+       7                              .if __TI_EABI__
+       8                              .asg    DCL_runPI_C4, _DCL_runPI_C4
+       9                              .endif
+      10                    .endif
+      11              
+      12                              .global _DCL_runPI_C4
+      13              
+      14 00000000                       .sect   "dclfuncs"
+      15              
+      16              ; C prototype: float DCL_runPI_C4(DCL_PI *p, float32_t rk, float32_t yk)
+      17              ; argument 1 = *p : 32-bit PI structure address [XAR4]
+      18              ; argument 2 = rk : 32-bit floating-point reference [R0H]
+      19              ; argument 3 = yk : 32-bit floating-point feedback [R1H]
+      20              ; return = uk : 32-bit floating-point [R0H]
+      21              
+      22                              .align  2
+      23              
+      24 00000000       _DCL_runPI_C4:
+      25                              .asmfunc
+      26 00000000 E322                  SUBF32          R2H, R0H, R1H           ; R2H = v1
+         00000001 11C4 
+      27              ||              MOV32           R1H, *XAR4                      ; R1H = Kpa
+      28 00000002 28A0                  MOV                     AR0, #0xA                       ; AR0 = 10
+         00000003 000A 
+      29 00000004 E304                  MPYF32          R0H, R1H, R2H           ; R0H = v2
+         00000005 41D4 
+      30              ||              MOV32           R1H, *+XAR4[2]          ; R1H = Kia
+      31 00000006 E2AF                  MOV32           R3H, *+XAR4[AR0]        ; R3H = i6
+         00000007 0394 
+      32 00000008 E700                  MPYF32          R2H, R1H, R2H           ; R2H = v3
+         00000009 008A 
+      33 0000000a E2AF                  MOV32           R1H, *+XAR4[4]          ; R1H = i10
+         0000000b 01E4 
+      34 0000000c E700                  MPYF32          R2H, R2H, R3H           ; R2H = v8
+         0000000d 00D2 
+      35 0000000e 7700                  NOP                                                             ; delay slot
+      36 0000000f E710                  ADDF32          R3H, R1H, R2H           ; R3H = v4
+         00000010 008B 
+      37 00000011 28A0                  MOV                     AR0, #8                         ; AR0 = 8
+         00000012 0008 
+      38 00000013 E016                  ADDF32          R0H, R0H, R3H           ; R3H = v5
+         00000014 03E4 
+      39              ||              MOV32           *+XAR4[4], R3H          ; save i10
+      40 00000015 E591                  ZERO            R1H                                     ; R1H = 0.0f
+      41 00000016 E88F                  ADDF32          R2H, R1H, #1.0          ; R2H = 1.0f
+         00000017 E00A 
+      42 00000018 E2AF                  MOV32           R3H, *+XAR4[6]          ; R3H = Umaxa
+         00000019 03F4 
+      43 0000001a E69D                  MINF32          R0H, R3H                        ; R0H = sat+
+TMS320C2000 Assembler Unix v21.6.0 Tue May  9 11:00:04 2023
+
+Copyright (c) 1996-2018 Texas Instruments Incorporated
+../libraries/DCL/DCL_PI_C4.asm                                       PAGE    2
+
+         0000001b 0298 
+      44              ||              MOV32           R2H, R1H                        ; R2H = v6
+      45 0000001c E2AF                  MOV32           R3H, *+XAR4[AR0]        ; R3H = Umina
+         0000001d 0394 
+      46 0000001e E69C                  MAXF32          R0H, R3H                        ; R0H = uk
+         0000001f 0298 
+      47              ||              MOV32           R2H, R1H                        ; R2H = v6
+      48 00000020 28A0                  MOV                     AR0, #0xA                       ; AR0 = 10
+         00000021 000A 
+      49 00000022 E203                  MOV32           *+XAR4[AR0], R2H        ; save i6
+         00000023 0294 
+      50 00000024 0006                  LRETR                                                   ; return call
+      51                              .endasmfunc
+      52              
+      53                              .end
+
+No Assembly Errors, No Assembly Warnings

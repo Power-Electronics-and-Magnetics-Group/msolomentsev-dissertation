@@ -1,0 +1,123 @@
+//#############################################################################
+//
+// FILE: psfbpcmc_clatask.cla
+//
+// TITLE:  CLA Task file
+//
+//#############################################################################
+// $TI Release: TIDM_02000 v1.00.00.00 $
+// $Release Date: Tue Nov  3 10:37:55 CST 2020 $
+// $Copyright:
+// Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com/
+//
+// ALL RIGHTS RESERVED
+// $
+//#############################################################################
+
+#include "psfbpcmc.h"
+
+//
+//-----------------------------------------------------------------------------
+//
+// Task 1
+//
+// PSFB_pcmcControlCode() could be enabled either in ISR or in CLA task
+// Here PSFB_pcmcControlCode() is executed in CLA task
+//
+//-----------------------------------------------------------------------------
+//
+__attribute__((interrupt))  void Cla1Task1 ( void )
+{
+
+#if PSFB_CONTROL_RUNNING_ON == CLA_CORE
+    PSFB_pcmcControlCode();
+#endif
+
+    PSFB_HAL_clearPWMInterruptFlag(
+            PSFB_C28x_CONTROLISR_INTERRUPT_TRIG_PWM_BASE);
+
+}
+
+//
+//-----------------------------------------------------------------------------
+//
+// Task 2 - Title Here
+//
+// Description: Description/steps here.
+//
+//-----------------------------------------------------------------------------
+//
+__attribute__((interrupt))  void Cla1Task2 ( void )
+{
+
+}
+
+//
+//-----------------------------------------------------------------------------
+//
+// Task 3 - Title Here
+//
+// Description: Description/steps here.
+//
+//-----------------------------------------------------------------------------
+//
+__attribute__((interrupt))  void Cla1Task3 ( void )
+{
+
+}
+
+//
+//-----------------------------------------------------------------------------
+//
+// Task 4 - Title Here
+//
+// Description: Description/steps here.
+//
+//-----------------------------------------------------------------------------
+//
+__attribute__((interrupt))  void Cla1Task4 ( void )
+{
+
+}
+
+//
+//-----------------------------------------------------------------------------
+//
+// Task 5 - Title Here
+//
+// Description: Description/steps here.
+//
+//-----------------------------------------------------------------------------
+//
+__attribute__((interrupt))  void Cla1Task5 ( void )
+{
+
+}
+
+//
+//-----------------------------------------------------------------------------
+//
+// Task 6 - Title Here
+//
+// Description: Description/steps here.
+//
+//-----------------------------------------------------------------------------
+//
+__attribute__((interrupt))  void Cla1Task6 ( void )
+{
+
+}
+
+//
+//-----------------------------------------------------------------------------
+//
+// Task 7 - One Time Initialization Task
+//
+// Description:
+//
+//-----------------------------------------------------------------------------
+//
+__attribute__((interrupt))  void Cla1Task7 ( void )
+{
+
+}
